@@ -1,21 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jgermany <nyaritakunai@outlook.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/01 11:59:24 by jgermany          #+#    #+#             */
-/*   Updated: 2022/12/01 12:39:45 by jgermany         ###   ########.fr       */
+/*   Created: 2022/12/01 13:36:47 by jgermany          #+#    #+#             */
+/*   Updated: 2022/12/01 13:47:04 by jgermany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
 
-# include <unistd.h>
-# include <stdlib.h>
+/* Code it in burst mode... Almost every function of the main lib coded without
+any interruption nor verifications... Tests will be made after */
 
-int	ft_isalpha(int c);
-
-#endif
+/* Starts by filling the headers ?? No ? */
