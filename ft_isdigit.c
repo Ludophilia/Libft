@@ -6,12 +6,13 @@
 /*   By: jgermany <nyaritakunai@outlook.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 13:36:47 by jgermany          #+#    #+#             */
-/*   Updated: 2022/12/01 13:47:04 by jgermany         ###   ########.fr       */
+/*   Updated: 2022/12/01 17:41:06 by jgermany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-/* Code it in burst mode... Almost every function of the main lib coded without
-any interruption nor verifications... Tests will be made after */
-
-/* Starts by filling the headers ?? No ? */
+int	ft_isdigit(int c)
+{
+	if ((c >= '0') && (c <= '9'))
+		return (1);
+	return (0);
+}
