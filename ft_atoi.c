@@ -1,23 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jgermany <nyaritakunai@outlook.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/01 16:59:43 by jgermany          #+#    #+#             */
-/*   Updated: 2022/12/05 10:15:51 by jgermany         ###   ########.fr       */
+/*   Created: 2022/12/05 13:33:24 by jgermany          #+#    #+#             */
+/*   Updated: 2022/12/05 13:51:42 by jgermany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-size_t	ft_strlen(const char *s)
+int	ft_atoi(const char *nptr)
 {
-	size_t	i;
-
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
+	// if not number, sign or space
+	// if sign : sign or number
 }

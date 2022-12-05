@@ -1,23 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jgermany <nyaritakunai@outlook.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/01 16:59:43 by jgermany          #+#    #+#             */
-/*   Updated: 2022/12/05 10:15:51 by jgermany         ###   ########.fr       */
+/*   Created: 2022/12/05 11:44:51 by jgermany          #+#    #+#             */
+/*   Updated: 2022/12/05 13:31:38 by jgermany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
 	size_t	i;
+	size_t	j;
 
+	if (!*little)
+		return (big);
 	i = 0;
-	while (s[i])
+	while ((i < len) && big[i])
+	{
+		j = 0;
+		while (big[i + j] == little[j])
+		{
+			if (!little[j + 1])
+				return (big + i);
+			j++;
+		}
 		i++;
-	return (i);
+	}		
+	return ((char *)0);
 }
