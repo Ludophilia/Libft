@@ -6,7 +6,7 @@
 /*   By: jgermany <nyaritakunai@outlook.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 20:18:59 by jgermany          #+#    #+#             */
-/*   Updated: 2022/12/02 21:20:49 by jgermany         ###   ########.fr       */
+/*   Updated: 2022/12/05 17:25:37 by jgermany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	size_t	dori;
+	size_t	dpos0;
 	size_t	dpos;
 	size_t	spos;
 
@@ -24,7 +24,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 		dpos++;
 		size--;
 	}
-	dori = dpos;
+	dpos0 = dpos;
 	spos = 0;
 	while (src[spos])
 	{
@@ -38,5 +38,5 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	}
 	if (size)
 		dst[dpos] = '\0';
-	return (dori + spos);
+	return (dpos0 + spos);
 }

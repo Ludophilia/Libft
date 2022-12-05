@@ -6,13 +6,11 @@
 /*   By: jgermany <nyaritakunai@outlook.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 13:36:47 by jgermany          #+#    #+#             */
-/*   Updated: 2022/12/01 17:41:06 by jgermany         ###   ########.fr       */
+/*   Updated: 2022/12/05 17:15:18 by jgermany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_isdigit(int c)
 {
-	if ((c >= '0') && (c <= '9'))
-		return (1);
-	return (0);
+	return ((c >= '0') && (c <= '9'));
 }
