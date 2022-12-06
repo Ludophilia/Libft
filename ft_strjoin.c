@@ -1,29 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jgermany <nyaritakunai@outlook.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/05 11:21:31 by jgermany          #+#    #+#             */
-/*   Updated: 2022/12/06 15:26:12 by jgermany         ###   ########.fr       */
+/*   Created: 2022/12/06 14:06:25 by jgermany          #+#    #+#             */
+/*   Updated: 2022/12/06 14:52:22 by jgermany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-void	*ft_memchr(const void *s, int c, size_t n)
+// MEMORY LEAK SAFE OR NOT ?
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	size_t			i;
-	unsigned char	*ps;
+	char		*dest;
+	size_t		ls1;
+	size_t		ls2;
+	size_t		i;
 
-	i = 0;
-	ps = (unsigned char *)s;
-	while ((i < n) && ps[i])
+	ls1 = ft_strlen(s1);
+	ls2 = ft_strlen(s2);
+	dest = malloc((ls1 + ls2 + 1) * sizeof(char));
+	if (dest)
 	{
-		if (ps[i] == (unsigned char)c)
-			return (s + i);
-		i++;
+		i = ft_strlcat(dest, s1, (ls1 + 1));
+		if (i == (0 + ls1))
+			i = ft_strlcat(dest, s2, (ls1 + ls2 + 1));
+		if (i == (ls1 + ls2))
+			return (dest);
 	}
-	return ((void *)0);
+	return ((char *)0);
 }

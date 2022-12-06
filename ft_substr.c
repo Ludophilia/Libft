@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jgermany <nyaritakunai@outlook.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/05 11:21:31 by jgermany          #+#    #+#             */
-/*   Updated: 2022/12/06 15:26:12 by jgermany         ###   ########.fr       */
+/*   Created: 2022/12/06 13:38:00 by jgermany          #+#    #+#             */
+/*   Updated: 2022/12/06 14:03:57 by jgermany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-void	*ft_memchr(const void *s, int c, size_t n)
+// MEMORY LEAK SAFE OR NOT ?
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	size_t			i;
-	unsigned char	*ps;
+	char	*substr;
+	int		i;
 
+	substr = malloc((len + 1) * sizeof(char));
+	if (!substr)
+		return ((char *)0);
 	i = 0;
-	ps = (unsigned char *)s;
-	while ((i < n) && ps[i])
-	{
-		if (ps[i] == (unsigned char)c)
-			return (s + i);
-		i++;
-	}
-	return ((void *)0);
+	while ((i < len))
+		substr[i++] = s[start + i];
+	substr[i] = '\0';
+	return (substr);
 }
