@@ -6,55 +6,66 @@
 /*   By: jgermany <nyaritakunai@outlook.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 13:08:05 by jgermany          #+#    #+#             */
-/*   Updated: 2022/12/07 16:58:51 by jgermany         ###   ########.fr       */
+/*   Updated: 2022/12/07 22:28:44 by jgermany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	**split(char const *s, char c)
+// MEMORY LEAK SAFE OR NOT ?
+static char	**ft_arrjoin(char **strs1, char **strs2)
 {
-	// Let's use divide and conquer
+	char	**strs;
+	size_t	len1;
+	size_t	len2;
+	size_t	i;
 
-	// Divide phase: recursively.
-		// Take a str, a char c which works as the sep
-		// if there is a char c:
-			// What is on left of the sep c is passed to a new instance of
-			// split,
-			// What is on the right, same
-		// This is repeated until... there is no char c in s or s is an empty 
-		// str.
-			// Then, what is returned by those instances of split ?
-			// An array containing a pointer to the str created
+	len1 = 0;
+	len2 = 0;
+	while (strs1[len1])
+		len1++;
+	while (strs2[len2])
+		len2++;
+	strs = (char **)malloc((len1 + len2 + 1) * sizeof(char *));
+	if (!strs)
+		return ((char **)0);
+	i = 0;
+	while (strs1[i])
+		strs[i++] = strs1[i];
+	while (strs2[i - len1])
+		strs[i++] = strs2[i - len1];
+	strs[i] = (char *)0;
+	free(strs1);
+	free(strs2);
+	return (strs);
+}
 
-	// What to do ?
-		// How to check the str and find c ? (ft_strchr) ?
-	char	**arr;
+// MEMORY LEAK SAFE OR NOT ?
+char	**ft_split(char const *s, char c)
+{
+	char	**strs;
 	char	*str1;
 	char	*str2;
 	char	*sep;
-	
-	sep = ft_strchr(s, c);
-	arr = malloc(3 * sizeof(char *));
-	if (!arr)
-		return ((char **)0);
+	size_t	slen;
+
+	slen = ft_strlen(s);
+	sep = ft_memchr(s, c, slen);
 	if (sep)
 	{
-		str1 = ft_substr(s, 0, (sep - s)); 
-		str2 = ft_substr(s, ((sep - s) + 1), (ft_strlen(s) - (sep - s + 1)));
-		
-		arr = split(str1, c);
-		arr = split(str2, c);
+		str1 = ft_substr(s, 0, (sep - s));
+		str2 = ft_substr(s, ((sep - s) + 1), (slen - (sep - s + 1)));
+		strs = ft_arrjoin(ft_split(str1, c), ft_split(str2, c));
 	}
 	else
 	{
-		
+		strs = (char **)malloc((1 + 1) * sizeof(char *));
+		if (!strs)
+			return ((char **)0);
+		str1 = ft_strdup(s);
+		str2 = (char *)0;
+		strs[0] = str1;
+		strs[1] = str2;
 	}
-
-
-	
-		
-	// Conquer phase:
-		// ???
-	return (arr);
+	return (strs);
 }
