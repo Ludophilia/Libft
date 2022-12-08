@@ -6,7 +6,7 @@
 /*   By: jgermany <nyaritakunai@outlook.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 13:08:05 by jgermany          #+#    #+#             */
-/*   Updated: 2022/12/07 22:28:44 by jgermany         ###   ########.fr       */
+/*   Updated: 2022/12/08 19:26:32 by jgermany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,12 +49,15 @@ char	**ft_split(char const *s, char c)
 	char	*sep;
 	size_t	slen;
 
+	// s is initialy not from heap so not modifiable, BUT could be...
+	// so how can I tell the difference???
 	slen = ft_strlen(s);
 	sep = ft_memchr(s, c, slen);
 	if (sep)
 	{
-		str1 = ft_substr(s, 0, (sep - s));
+		str1 = ft_substr(s, 0, (sep - s)); // Alt that does not use the heap
 		str2 = ft_substr(s, ((sep - s) + 1), (slen - (sep - s + 1)));
+		//free(s);
 		strs = ft_arrjoin(ft_split(str1, c), ft_split(str2, c));
 	}
 	else
@@ -62,7 +65,7 @@ char	**ft_split(char const *s, char c)
 		strs = (char **)malloc((1 + 1) * sizeof(char *));
 		if (!strs)
 			return ((char **)0);
-		str1 = ft_strdup(s);
+		str1 = s; // or ft_strdup(s);
 		str2 = (char *)0;
 		strs[0] = str1;
 		strs[1] = str2;
