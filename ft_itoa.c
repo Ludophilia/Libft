@@ -6,25 +6,50 @@
 /*   By: jgermany <nyaritakunai@outlook.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 19:27:18 by jgermany          #+#    #+#             */
-/*   Updated: 2022/12/08 22:12:34 by jgermany         ###   ########.fr       */
+/*   Updated: 2022/12/09 16:57:07 by jgermany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-// Divide and Conquer... Again !!! // strjoin sur toutes les instances d'itoa ?
-// free memory avant quand meme... MEMORY LEAK SAFE OR NOT ?
-// Where are negative numbers ?
+static size_t	ft_lennbr(int n)
+{
+	size_t	len;
+
+	len = 0;
+	if (n <= 0)
+		len++;
+	while (n)
+	{
+		n /= 10;
+		len++;
+	}
+	return (len);
+}
+
+// YO FAM, MEMORY LEAK SAFE OR WHOT ?
 char	*ft_itoa(int n)
 {
 	char	*str;
-	char	digit;
+	int		sgn;
+	size_t	len;
+	size_t	i;
 
-	str = "";
-	digit = '0' + (n % 10); // 42 -> 2
-	if (n >= 10) // 42 -> 0, 4
-		str = ft_strjoin(ft_itoa((n / 10) / 10), ft_itoa(n / 10));
-	if (n != 0)
-		str = ft_strjoin(str, &digit); // janky, no null character.
+	len = ft_lennbr(n);
+	sgn = 1;
+	str = (char *)malloc((len + 1) * sizeof(char));
+	if (!str)
+		return ((char *)0);
+	str[len] = '\x0';
+	if (n < 0)
+		str[0] = '-';
+	i = 0;
+	while (n || !i)
+	{
+		if (n < 0)
+			sgn = -1;
+		str[len - 1 - i++] = '0' + sgn * (n % 10);
+		n /= 10;
+	}
 	return (str);
 }
