@@ -6,7 +6,7 @@
 /*   By: jgermany <nyaritakunai@outlook.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 13:08:05 by jgermany          #+#    #+#             */
-/*   Updated: 2022/12/10 17:00:28 by jgermany         ###   ########.fr       */
+/*   Updated: 2022/12/11 14:30:00 by jgermany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ char	**ft_split(char const *s, char c)
 	sep = ft_memchr(s, c, slen);
 	if (sep)
 	{
-		str1 = ft_substr(s, 0, (sep - s)); // Alt that does not use the heap
+		str1 = ft_substr(s, 0, (sep - s));
 		str2 = ft_substr(s, ((sep - s) + 1), (slen - (sep - s + 1)));
 		strs = ft_arrjoin(ft_split(str1, c), ft_split(str2, c));
 	}
