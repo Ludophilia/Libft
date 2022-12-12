@@ -6,7 +6,7 @@
 /*   By: jgermany <nyaritakunai@outlook.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 14:17:39 by jgermany          #+#    #+#             */
-/*   Updated: 2022/12/11 15:22:20 by jgermany         ###   ########.fr       */
+/*   Updated: 2022/12/12 15:59:11 by jgermany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	del(lst);
+	if (del)
+		del(lst);
 	free(lst);
 }

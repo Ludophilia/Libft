@@ -6,7 +6,7 @@
 /*   By: jgermany <nyaritakunai@outlook.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 15:28:27 by jgermany          #+#    #+#             */
-/*   Updated: 2022/12/11 15:57:18 by jgermany         ###   ########.fr       */
+/*   Updated: 2022/12/12 16:14:44 by jgermany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,28 @@
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	// t_list	*node;
+	t_list	*first;
+	t_list	*last;
+	t_list	*new;
 
-	// node = ft_lstnew(void *content);
-	// while (lst)
-	// {
-	// 	f(lst->content);
-	// 	lst = lst->next;
-	// }
-	// return (node);
+	first = (t_list *)0;
+	last = (t_list *)0;
+	while (lst)
+	{
+		if (f)
+			lst->content = f(lst->content);
+		else if (del)
+			del(lst->content);
+		new = ft_lstnew(lst->content);
+		if (!new)
+			return ((t_list *)0);
+		if (!first)
+			first = new;
+		if (last)
+			last->next = new;
+		last = new;
+		lst = lst->next;
+		ft_lstdelone(lst, 0);
+	}
+	return (first);
 }
