@@ -18,11 +18,12 @@
 *.x86_64
 *.hex
 
-#VScode
+# VScode
 .vscode
 
-#Apple 
+# Apple 
 .DS_Store 
 
-#Main
+# Testers
+libftTester/
 #main.c

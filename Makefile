@@ -6,7 +6,7 @@
 #    By: jgermany <nyaritakunai@outlook.com>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/30 13:02:44 by jgermany          #+#    #+#              #
-#    Updated: 2022/12/01 11:56:49 by jgermany         ###   ########.fr        #
+#    Updated: 2022/12/12 20:37:00 by jgermany         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,20 +15,21 @@ NAME = libft.a
 CC = gcc
 CCFL = -Wall -Wextra -Werror
 OBFL = -c
-# OUTFL = -o
+OUTFL = -o
 INCFL = -I
 
 AR = ar
 ARFL = -rcs
 
-# SRCS = ./srcs
 INCLUDES = ./
-CFILES = $(wildcard $(SRCS)/ft*.c)
+CFILES = $(wildcard /ft*.c) #SIR, WHERE ARE YOUR MANDATORY C FILES ??
+# LEARN TO USE GLOB PATTERN MATCHING, OR WRITE EVERY NAME (LOL)
+# AND HOW 'BOUT THE BONUSES? I THOUGHT WE WERE VERY CLEAR ON THAT!!
 OBFILES = $(CFILES:.c=.o)
 
 all: $(NAME)
-$(NAME): $(OBFILES)
-	$(AR) $(ARFL) $@ $^
+$(NAME): $(OBFILES) #BROKEN, AS OBFILES DOESN'T WORK
+	$(AR) $(ARFL) $@ $^ 
 %.o: %.c
 	$(CC) $(CCFL) $(INCFL)$(INCLUDES) $(OBFL) $< $(OUTFL) $@
 
@@ -37,11 +38,10 @@ fclean: clean
 	rm $(NAME)
 clean:
 	rm $(OBFILES)
-
 xclean:
 	rm $(NAME)
 
 bonus:
-	echo "bonus under construction ;)"
+	@echo "bonus are there, but there is still work to do ;)"
 
 .PHONY: all clean fclean xclean re bonus
