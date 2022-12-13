@@ -6,7 +6,7 @@
 /*   By: jgermany <nyaritakunai@outlook.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 17:21:01 by jgermany          #+#    #+#             */
-/*   Updated: 2022/12/10 17:34:35 by jgermany         ###   ########.fr       */
+/*   Updated: 2022/12/13 17:10:39 by jgermany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,5 @@ void	ft_putnbr_fd(int nb, int fd)
 		nb = '0' + -(nb % 10);
 	else
 		nb = '0' + (nb % 10);
-	ft_putchar_fd(&nb, fd);
+	ft_putchar_fd(nb, fd);
 }

@@ -6,11 +6,11 @@
 /*   By: jgermany <nyaritakunai@outlook.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 17:51:10 by jgermany          #+#    #+#             */
-/*   Updated: 2022/12/12 14:26:39 by jgermany         ###   ########.fr       */
+/*   Updated: 2022/12/13 17:04:51 by jgermany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libft_bonus.h"
 
 t_list	*ft_lstnew(void *content)
 {

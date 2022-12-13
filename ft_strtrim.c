@@ -6,7 +6,7 @@
 /*   By: jgermany <nyaritakunai@outlook.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 14:59:24 by jgermany          #+#    #+#             */
-/*   Updated: 2022/12/06 23:29:31 by jgermany         ###   ########.fr       */
+/*   Updated: 2022/12/13 17:38:31 by jgermany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,10 @@ char	*ft_strtrim(char const *s1, char const *set)
 		return ((char *)0);
 	i = 0;
 	while (i < (end - start))
-		str[i++] = s1[start + i];
+	{
+		str[i] = s1[start + i];
+		i++;
+	}
 	str[i] = '\x0';
 	return (str);
 }

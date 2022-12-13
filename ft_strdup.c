@@ -6,7 +6,7 @@
 /*   By: jgermany <nyaritakunai@outlook.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 18:56:25 by jgermany          #+#    #+#             */
-/*   Updated: 2022/12/06 15:50:54 by jgermany         ###   ########.fr       */
+/*   Updated: 2022/12/13 17:30:57 by jgermany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ char	*ft_strdup(const char *s)
 	str = malloc((ft_strlen(s) * sizeof(char)) + 1);
 	if (!str)
 		return ((char *)0);
-	i = 0;
-	while (s[i])
-		str[i++] = s[i];
+	i = -1;
+	while (s[++i])
+		str[i] = s[i];
 	str[i] = '\x0';
 	return ((char *)str);
 }

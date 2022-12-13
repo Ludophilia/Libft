@@ -6,7 +6,7 @@
 /*   By: jgermany <nyaritakunai@outlook.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 18:27:55 by jgermany          #+#    #+#             */
-/*   Updated: 2022/12/06 15:52:29 by jgermany         ###   ########.fr       */
+/*   Updated: 2022/12/13 17:36:40 by jgermany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,10 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 
 	i = 0;
 	while ((size > 0) && (i < (size - 1)) && src[i])
-		dst[i++] = src[i];
+	{
+		dst[i] = src[i];
+		i++;
+	}
 	if (size != 0)
 		dst[i] = '\0';
 	return (ft_strlen(src));

@@ -6,9 +6,11 @@
 /*   By: jgermany <nyaritakunai@outlook.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 13:33:24 by jgermany          #+#    #+#             */
-/*   Updated: 2022/12/05 17:15:49 by jgermany         ###   ########.fr       */
+/*   Updated: 2022/12/13 16:26:50 by jgermany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 static int	is_space(char c)
 {

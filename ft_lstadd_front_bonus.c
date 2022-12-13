@@ -6,11 +6,11 @@
 /*   By: jgermany <nyaritakunai@outlook.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 18:40:49 by jgermany          #+#    #+#             */
-/*   Updated: 2022/12/12 18:23:05 by jgermany         ###   ########.fr       */
+/*   Updated: 2022/12/13 17:04:18 by jgermany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libft_bonus.h"
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {

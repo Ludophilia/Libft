@@ -6,7 +6,7 @@
 #    By: jgermany <nyaritakunai@outlook.com>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/30 13:02:44 by jgermany          #+#    #+#              #
-#    Updated: 2022/12/13 15:57:57 by jgermany         ###   ########.fr        #
+#    Updated: 2022/12/13 17:46:59 by jgermany         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,29 +14,29 @@ NAME = libft.a
 
 CC = gcc
 CCFL = -Wall -Wextra -Werror
-OBFL = -c
+SRCFL = -c
 OUTFL = -o
 INCFL = -I
 
 AR = ar
 ARFL = -rcs
 
-INCLUDES = ./
-CMAN = $(wildcard ft_[abcimpst]*.c)
-CBON = $(wildcard ft*_bonus.c)
-OBFILES = $(CMAN:.c=.o)
+INCDIR = .
+CMN = $(wildcard ft_[abcimpst]*.c)
+CBN = $(wildcard ft*_bonus.c)
+OBMN = $(CMN:.c=.o)
 
 all: $(NAME)
-$(NAME): $(OBFILES) #BROKEN, AS OBFILES DOESN'T WORK
-	$(AR) $(ARFL) $@ $^ 
+$(NAME): $(OBMN)
+	$(AR) $(ARFL) $@ $^
 %.o: %.c
-	$(CC) $(CCFL) $(INCFL)$(INCLUDES) $(OBFL) $< $(OUTFL) $@
+	$(CC) $(CCFL) $(INCFL)$(INCDIR) $(SRCFL) $< $(OUTFL) $@
 
 re: fclean all
 fclean: clean
 	rm $(NAME)
 clean:
-	rm $(OBFILES)
+	rm $(OBMN)
 xclean:
 	rm $(NAME)
 
