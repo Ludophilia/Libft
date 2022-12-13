@@ -1,24 +1,46 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    ft_isalpha.txt                                     :+:      :+:    :+:    #
+#    ft_memset.txt                                      :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: jgermany <nyaritakunai@outlook.com>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/25 11:26:54 by jgermany          #+#    #+#              #
-#    Updated: 2022/12/01 13:58:18 by jgermany         ###   ########.fr        #
+#    Updated: 2022/12/13 20:24:58 by jgermany         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-Libft - ft_isalpha 🟢🔴
+Libft - ft_memset 🟢🔴
 
 Evil tests made with 😈😈😈 passion
 
-Context : <see man isalpha>
+Context : The memset() function fills the first n bytes of the memory area
+pointed to by s with the constant byte c.
+
+Notes:
+	- n, the size of memory, varies according to the type (ex : 
+	memset(arr1, 65, 10 * sizeof(int)). So watch out this part or it won't 
+	work.
+	- c, the int, seems to be casted to char or unsigned char. Ex : 
+	memset(arr1, 65, 10 * sizeof(int) write 'A' in arr1.
+
 
 What kind of tests should we do here?
 	-> See below
-	
+
+(Do I really understand typecasting ???)
+
+Test material
+	- Array of <> or space allocated via malloc
+	- Original memset (#include <string.h>)
+
+Invalid memory
+	ft_memset((void *)0, 1, size_t n)
+
+
+
+
+
 [🔴] Happy path :)
 	"I" (73)
 		-> 1 or 1024
