@@ -6,7 +6,7 @@
 #    By: jgermany <nyaritakunai@outlook.com>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/30 13:02:44 by jgermany          #+#    #+#              #
-#    Updated: 2022/12/12 20:37:00 by jgermany         ###   ########.fr        #
+#    Updated: 2022/12/13 15:57:57 by jgermany         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,10 +22,9 @@ AR = ar
 ARFL = -rcs
 
 INCLUDES = ./
-CFILES = $(wildcard /ft*.c) #SIR, WHERE ARE YOUR MANDATORY C FILES ??
-# LEARN TO USE GLOB PATTERN MATCHING, OR WRITE EVERY NAME (LOL)
-# AND HOW 'BOUT THE BONUSES? I THOUGHT WE WERE VERY CLEAR ON THAT!!
-OBFILES = $(CFILES:.c=.o)
+CMAN = $(wildcard ft_[abcimpst]*.c)
+CBON = $(wildcard ft*_bonus.c)
+OBFILES = $(CMAN:.c=.o)
 
 all: $(NAME)
 $(NAME): $(OBFILES) #BROKEN, AS OBFILES DOESN'T WORK
