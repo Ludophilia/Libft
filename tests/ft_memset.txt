@@ -6,7 +6,7 @@
 #    By: jgermany <nyaritakunai@outlook.com>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/25 11:26:54 by jgermany          #+#    #+#              #
-#    Updated: 2022/12/13 20:24:58 by jgermany         ###   ########.fr        #
+#    Updated: 2022/12/14 17:28:28 by jgermany         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,70 +17,38 @@ Evil tests made with 😈😈😈 passion
 Context : The memset() function fills the first n bytes of the memory area
 pointed to by s with the constant byte c.
 
-Notes:
-	- n, the size of memory, varies according to the type (ex : 
-	memset(arr1, 65, 10 * sizeof(int)). So watch out this part or it won't 
-	work.
-	- c, the int, seems to be casted to char or unsigned char. Ex : 
-	memset(arr1, 65, 10 * sizeof(int) write 'A' in arr1.
-
-
-What kind of tests should we do here?
-	-> See below
-
-(Do I really understand typecasting ???)
-
 Test material
-	- Array of <> or space allocated via malloc
-	- Original memset (#include <string.h>)
+	- Array of char of 5 elements or space allocated via malloc
+	- Original memset (#include <string.h>) for comparison
 
-Invalid memory
-	ft_memset((void *)0, 1, size_t n)
+[🟢] Happy path
+	ft_memset(arr, 42, 3)
+		-> 3 bytes change in arr
 
+[🟢] Exact size
+	ft_memset(arr, '0', 5)
+		-> 5 bytes are written
 
+[🟢] Negative int
+	ft_memset(arr, -2147, 4)
+		-> 4 bytes are written
 
+[🟢] Positive int
+	ft_memset(arr, 255, 2)
+		-> 2 bytes are written
 
+[🟢] 0
+	ft_memset(arr, 0, 1)
+		-> 1 byte is written
 
-[🔴] Happy path :)
-	"I" (73)
-		-> 1 or 1024
-	"g" (103)
-		-> 1 or 1024
-	"x" (120)
-		-> 1 or 1024
+[🟢] Invalid memory address;
+	ft_memset((void *)0, 1, 1)
+		-> Segfault / Undefined behavior
 
-[🔴] Alpha extremes
-	"a" (97)
-		-> 1 or 1024
-	"z" (122)
-		-> 1 or 1024
-	"A" (65)
-		-> 1 or 1024
-	"Z" (90)
-		-> 1 or 1024
+[🟢] No size
+	ft_memset(arr, '0', 0)
+		-> Nothing changes in arr
 
-[🔴] Still ascii but not alpha
-	"0" (48)
-		-> 0
-	"0" (0)
-		-> 0
-	"13" (13)
-		-> 0
-	"<" (60)
-		-> 0
-	"\" (92)
-		-> 0
-	"127" (127)
-		-> 0
-	"255" (255)
-		-> 0
-
-[🔴] Completely out of bounds
-	"-255" (-255)
-		-> 0
-	"-1" (-1)
-		-> 0
-	"580" (580)
-		-> 0
-	"2147483647" (2147483647)
-		-> 0
+[🔴] Size too long
+	ft_memset(arr, 10, 10)
+		-> Write as much as needed (+ Undefined behavior ?)
