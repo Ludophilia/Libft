@@ -1,0 +1,53 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    ft_memcpy.txt                                      :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: jgermany <nyaritakunai@outlook.com>        +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/11/25 11:26:54 by jgermany          #+#    #+#              #
+#    Updated: 2022/12/14 19:09:42 by jgermany         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+Libft - ft_memcpy 🟢🔴
+
+Evil tests made with 😈😈😈 passion
+
+Context : The memcpy() function copies n bytes from memory area src to
+memory area dest.  The memory areas must not overlap.  Use
+memmove(3) if the memory areas do overlap.
+
+Test material
+	- Array 1 of char of 5 elements or space allocated via malloc
+	- Array 2 of char of 5 elements or space allocated via malloc
+	- Original memcpy (#include <string.h>) for comparison
+
+[🟢] Happy path
+	ft_memcpy(arr2, arr1, 3)
+		-> 3 bytes copied from arr2 to arr1
+
+[🟢] Exact size
+	ft_memcpy(arr2, arr1, 5)
+		-> 5 bytes copied from arr2 to arr1
+
+[🟢] Invalid memory address;
+	ft_memcpy((void *)0, arr1, 1)
+		-> Segfault / Undefined behavior
+	ft_memcpy(arr2, (void *)0, 1)
+		-> Segfault / Undefined behavior
+	
+[🔴] Overlapping memory address
+	ft_memcpy(arr1 + 1, arr1, 3)
+		-> Undefined behavior (The first byte of arr1 could be copied 3
+		times for exmample, as what's been written before is used as source
+		for the next turn)
+
+[🟢] No size
+	ft_memset(arr, '0', 0)
+		-> Nothing changes in arr
+
+[🟢] Size too long
+	ft_memset(arr, 10, 10)
+		-> Write as much as needed (+ Undefined behavior - *** stack smashing 
+		detected ***)
