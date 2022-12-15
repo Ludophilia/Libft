@@ -1,0 +1,86 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    ft_strchr.txt                                      :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: jgermany <nyaritakunai@outlook.com>        +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/11/25 11:26:54 by jgermany          #+#    #+#              #
+#    Updated: 2022/12/15 15:27:07 by jgermany         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+Libft - ft_strchr 🟢🔴
+
+Evil tests made with 😈😈😈 passion
+
+Context : The strchr() function returns a pointer to the first occurrence
+       of the character c in the string s.
+
+Test material
+	- read only string ex : ""
+	- Original memmove (#include <string.h>) for comparison
+
+Prototype
+	char	*ft_strchr(const char *s, int c)
+
+
+[🟢] Happy path
+	ft_strchr("hello", 'l')
+		-> "llo"
+	ft_strchr("hello", 108)
+		-> "llo"
+
+Empty str
+	ft_strchr("", 'l')
+
+Wrong number
+	ft_strchr((char *)0, 32)
+
+Nowhere to be found
+	ft_strchr("hello", 'x')
+	ft_strchr("hello", -2147483647)
+	ft_strchr("hello", -1)
+	ft_strchr("hello", 4242)
+
+Modulo what??
+	ft_strchr("hello", 'l' + 16 * 256)
+	ft_strchr("hello", 108 + 256)
+
+
+
+
+[🟢] Void pointer well received. Over.
+	ft_memmove(arr2, arr1, 3)
+		-> arr2 is returned (check pointers with printf, or smth else)
+
+[🟢] Exact size
+	ft_memmove(arr2, arr1, 5)
+		-> 5 bytes copied from arr2 to arr1
+
+[🟢] No size
+	ft_memmove(arr2, arr1, 0)
+		-> Nothing changes in arr2
+
+[🟢] Size too long
+	ft_memmove(arr2, arr1, 10)
+		-> Write as much as needed (+ Undefined behavior - *** stack smashing 
+		detected *** : terminated)
+
+[🟢] Invalid memory address
+	ft_memmove((void *)0, arr1, 1)
+		-> Segfault / Undefined behavior
+	ft_memmove(arr2, (void *)0, 1)
+		-> Segfault / Undefined behavior
+	ft_memmove((void *)0, (void *)0, 1)
+		-> Nothing changes
+
+[🟢] Overlapping memory address (case (dest > src) and (dest < src))
+	ft_memmove(arr1 + 1, arr1, 3) (dest > src)
+		-> Content is copied without problems (1, 2, 3, 4, 5 becomes 
+		1, 1, 2, 3, 5)
+	ft_memmove(arr1, arr1 + 1, 2) (dest < src)
+		-> Content is copied without problems (1, 2, 3, 4, 5 becomes 
+		2, 3, 3, 4, 5)
+	ft_memmove(arr1, arr1, 3)
+		-> Nothing change. And why should we do anything in the first place?
