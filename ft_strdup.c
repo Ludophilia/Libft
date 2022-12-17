@@ -6,12 +6,12 @@
 /*   By: jgermany <nyaritakunai@outlook.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 18:56:25 by jgermany          #+#    #+#             */
-/*   Updated: 2022/12/13 17:30:57 by jgermany         ###   ########.fr       */
+/*   Updated: 2022/12/17 14:09:56 by jgermany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-// MEMORY LEAK SAFE OR NOT ?
+
 char	*ft_strdup(const char *s)
 {
 	char	*str;
