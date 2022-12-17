@@ -6,7 +6,7 @@
 /*   By: jgermany <nyaritakunai@outlook.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 11:44:51 by jgermany          #+#    #+#             */
-/*   Updated: 2022/12/06 15:50:05 by jgermany         ###   ########.fr       */
+/*   Updated: 2022/12/17 01:17:17 by jgermany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	while ((i < len) && big[i])
 	{
 		j = 0;
-		while (big[i + j] == little[j])
+		while (((i + j) < len) && (big[i + j] == little[j]))
 		{
 			if (!little[j + 1])
 				return ((char *)big + i);
