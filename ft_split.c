@@ -6,7 +6,7 @@
 /*   By: jgermany <nyaritakunai@outlook.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 13:08:05 by jgermany          #+#    #+#             */
-/*   Updated: 2022/12/13 17:27:02 by jgermany         ###   ########.fr       */
+/*   Updated: 2022/12/19 14:46:01 by jgermany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ static char	**ft_arrjoin(char **strs1, char **strs2)
 	i = 0;
 	while (strs1[i])
 	{
+	    if () // filtering... those str that contains a null as
+		// a first char, we don't want em
 		strs[i] = strs1[i];
 		i++;
 	}
@@ -57,6 +59,11 @@ static char	**ft_arrjoin(char **strs1, char **strs2)
 // so how can I tell the difference???
 char	**ft_split(char const *s, char c)
 {
+	// What to do ??
+		// - How to create a substr
+		// - Memory leaks and invalid read/write
+		// - Functionality - My split is incorrect as they don't want 
+		// empty strs, I have to remove this first
 	char	**strs;
 	char	*str1;
 	char	*str2;
@@ -65,9 +72,11 @@ char	**ft_split(char const *s, char c)
 
 	slen = ft_strlen(s);
 	sep = ft_memchr(s, c, slen);
+	//strs = (char **)0;
 	if (sep)
 	{
-		str1 = ft_substr(s, 0, (sep - s));
+		str1 = ft_substr(s, 0, (sep - s)); // Those intermediary substr should
+		// be freed, THEY'RE NOT so there is leak...
 		str2 = ft_substr(s, ((sep - s) + 1), (slen - (sep - s + 1)));
 		strs = ft_arrjoin(ft_split(str1, c), ft_split(str2, c));
 	}
