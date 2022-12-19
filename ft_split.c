@@ -6,23 +6,27 @@
 /*   By: jgermany <nyaritakunai@outlook.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 13:08:05 by jgermany          #+#    #+#             */
-/*   Updated: 2022/12/19 14:46:01 by jgermany         ###   ########.fr       */
+/*   Updated: 2022/12/19 18:25:27 by jgermany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+// RIP NORMINETTE
 static size_t	ft_arrlen(char **strs)
 {
 	size_t	len;
-
+    int     i;
+    
+    i = -1;
 	len = 0;
-	while (strs[len])
+	while (strs[++i])
+		//if (strs[i][0])
 		len++;
+	//printf("len - %lu\n", len);
 	return (len);
 }
 
-// MEMORY LEAK SAFE OR NOT ?
 static char	**ft_arrjoin(char **strs1, char **strs2)
 {
 	char	**strs;
@@ -38,14 +42,20 @@ static char	**ft_arrjoin(char **strs1, char **strs2)
 	i = 0;
 	while (strs1[i])
 	{
-	    if () // filtering... those str that contains a null as
-		// a first char, we don't want em
+		//if (strs1[i][0])
+		//    printf("strs1[i][0] = %s\n", strs1[i]);
 		strs[i] = strs1[i];
+		//else
+        //    free(strs1[i]);
 		i++;
 	}
 	while (strs2[i - len1])
 	{
+		//if (strs2[i - len1][0])
+		//    printf("strs2[i - len1][0] = %s\n\n", strs2[i - len1]);
 		strs[i] = strs2[i - len1];
+		//else
+		//    free(strs2[i - len1]);
 		i++;
 	}
 	strs[i] = (char *)0;
@@ -54,16 +64,9 @@ static char	**ft_arrjoin(char **strs1, char **strs2)
 	return (strs);
 }
 
-// MEMORY LEAK SAFE OR NOT ?
-// s is initialy not from heap so not modifiable, BUT could be...
-// so how can I tell the difference???
+
 char	**ft_split(char const *s, char c)
 {
-	// What to do ??
-		// - How to create a substr
-		// - Memory leaks and invalid read/write
-		// - Functionality - My split is incorrect as they don't want 
-		// empty strs, I have to remove this first
 	char	**strs;
 	char	*str1;
 	char	*str2;
@@ -72,14 +75,28 @@ char	**ft_split(char const *s, char c)
 
 	slen = ft_strlen(s);
 	sep = ft_memchr(s, c, slen);
-	//strs = (char **)0;
 	if (sep)
 	{
-		str1 = ft_substr(s, 0, (sep - s)); // Those intermediary substr should
-		// be freed, THEY'RE NOT so there is leak...
+		str1 = ft_substr(s, 0, (sep - s)); 
 		str2 = ft_substr(s, ((sep - s) + 1), (slen - (sep - s + 1)));
-		strs = ft_arrjoin(ft_split(str1, c), ft_split(str2, c));
+		printf("str1 -> '%s', str2 -> '%s'\n", str1, str2);
+
+		if (*str1 && !*str2)
+		{
+		    strs = ft_split(str1, c);
+		    free(str2);
+		}
+		else if (*str2 && !*str1)
+		{
+		    strs = ft_split(str2, c);
+		    free(str1);
+		}
+	    if (*str1 && *str2)
+            strs = ft_arrjoin(ft_split(str1, c), ft_split(str2, c));
 	}
+	
+	// ft_arrjoin(ft_split(str1, c), ft_split(str2, c))
+	// ft_arrjoin(, )
 	else
 	{
 		strs = (char **)malloc((1 + 1) * sizeof(char *));
@@ -92,3 +109,65 @@ char	**ft_split(char const *s, char c)
 	}
 	return (strs);
 }
+
+int main() {
+    char    **strs;
+    int     i;
+    
+    strs = ft_split("  tripouille  42  ", ' ');
+    i = -1;
+    //while (strs[++i])
+    //    printf("'%s'\n", strs[i]);
+    return 0;
+}
+
+//////////////////////////////////////////////////////
+
+// size_t	ft_strlen(const char *s)
+// {
+// 	size_t	i;
+
+// 	i = 0;
+// 	while (s[i])
+// 		i++;
+// 	return (i);
+// }
+
+// char	*ft_substr(char const *s, unsigned int start, size_t len)
+// {
+// 	char	*substr;
+// 	size_t	size;
+// 	size_t	slen;
+// 	size_t	i;
+
+// 	size = 0;
+// 	slen = ft_strlen(s);
+// 	while (((start + size) < slen) && (size < len))
+// 		size++;
+// 	substr = malloc((size + 1) * sizeof(char));
+// 	if (!substr)
+// 		return ((char *)0);
+// 	i = 0;
+// 	while ((i < size) && ((start + i) < slen))
+// 	{
+// 		substr[i] = s[start + i];
+// 		i++;
+// 	}
+// 	substr[i] = '\x0';
+// 	return (substr);
+// }
+
+
+// void	*ft_memchr(const void *s, int c, size_t n)
+// {
+// 	size_t	i;
+
+// 	i = 0;
+// 	while (i < n)
+// 	{
+// 		if (((unsigned char *)s)[i] == (unsigned char)c)
+// 			return ((void *)s + i);
+// 		i++;
+// 	}
+// 	return ((void *)0);
+// }
