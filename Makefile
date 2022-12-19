@@ -6,7 +6,7 @@
 #    By: jgermany <nyaritakunai@outlook.com>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/30 13:02:44 by jgermany          #+#    #+#              #
-#    Updated: 2022/12/13 17:46:59 by jgermany         ###   ########.fr        #
+#    Updated: 2022/12/19 22:52:57 by jgermany         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,6 +32,10 @@ $(NAME): $(OBMN)
 %.o: %.c
 	$(CC) $(CCFL) $(INCFL)$(INCDIR) $(SRCFL) $< $(OUTFL) $@
 
+test_%: all
+	$(CC) $(CCFL) $(INCFL)$(INCDIR) -lft -L. tests/$@.c && ./a.out
+	rm a.out
+
 re: fclean all
 fclean: clean
 	rm $(NAME)
@@ -42,5 +46,4 @@ xclean:
 
 bonus:
 	@echo "bonus are there, but there is still work to do ;)"
-
-.PHONY: all clean fclean xclean re bonus
+.PHONY: all clean fclean xclean re bonus test_%
