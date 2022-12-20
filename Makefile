@@ -6,7 +6,7 @@
 #    By: jgermany <nyaritakunai@outlook.com>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/30 13:02:44 by jgermany          #+#    #+#              #
-#    Updated: 2022/12/20 14:50:31 by jgermany         ###   ########.fr        #
+#    Updated: 2022/12/20 21:07:20 by jgermany         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,6 +34,8 @@ $(NAME): $(OBMN)
 
 test_%: all
 	$(CC) $(CCFL) $(INCFL)$(INCDIR) tests/$@.c -lft -L. && ./a.out
+	valgrind --leak-check=full --show-leak-kinds=all \
+		--track-origins=yes ./a.out
 	rm a.out
 
 re: fclean all

@@ -6,7 +6,7 @@
 /*   By: jgermany <nyaritakunai@outlook.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 21:50:13 by jgermany          #+#    #+#             */
-/*   Updated: 2022/12/20 17:59:07 by jgermany         ###   ########.fr       */
+/*   Updated: 2022/12/20 22:34:45 by jgermany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,33 +15,51 @@
 
 void	ft_printstrs(char **strs)
 {
-	while (*strs)
-		printf("\t-> '%s'\n", *strs++);
+	size_t	len;
+
+	len = 0;
+	if (!*strs)
+		printf("\t-> (Empty)\n");
+	while (strs[len])
+	{
+		printf("\t -> '%s'\n", strs[len]);
+		len++;
+	}
+	printf("\t -> %lu total\n", len);
+}
+
+void	ft_freestrs(char **strs)
+{
+	char	**head;
+
+	head = strs;
+	while (*head)
+		free(*head++);
+	free(strs);
+}
+
+void	ft_split_testcase(char *str, char sep)
+{
+	char	**strs;
+	
+	printf("\nft_split(\"%s\", \'%c\'):\n", str, sep);
+	strs = ft_split(str, sep);
+	ft_printstrs(strs);
+	ft_freestrs(strs);
 }
 
 int	main(void)
 {
-	char	*str;
+	ft_split_testcase("hello world ", ' ');
 
-	str = "hello world ";
-	printf("\nft_split(\"%s\", \'\\x20\'):\n", str);
-	ft_printstrs(ft_split(str, '\x20'));
-	str = "  12 34";
-	printf("\nft_split(\"%s\", \'\\x20\'):\n", str);
-	ft_printstrs(ft_split(str, '\x20'));
-	str = " 12 34 ";
-	printf("\nft_split(\"%s\", \'\\x20\'):\n", str);
-	ft_printstrs(ft_split(str, '\x20'));
-	str = "   12    34 ";
-	printf("\nft_split(\"%s\", \'\\x20\'):\n", str);
-	ft_printstrs(ft_split(str, '\x20'));
-	str = "  tripouille  42  ";
-	printf("\nft_split(\"%s\", \'\\x20\'):\n", str);
-	ft_printstrs(ft_split(str, '\x20'));
-	str = " "; // "  "
-	printf("\nft_split(\"%s\", \'\\x20\'):\n", str);
-	ft_printstrs(ft_split(str, '\x20'));
-	str = "   12    34          ";
-	printf("\nft_split(\"%s\", \'\\x20\'):\n", str);
-	ft_printstrs(ft_split(str, '\x20'));
+	// ft_split_testcase("  12 34", ' ');
+	// ft_split_testcase("   12    34 ", ' ');
+	// ft_split_testcase("   12    34          ", ' ');
+
+	// ft_split_testcase("  tripouille  42  ", ' ');
+	// ft_split_testcase(" ", ' ');
+
+	// ft_split_testcase("tripouille", 0);
+	// ft_split_testcase((char *)0, 0); // SHOULD SEGFAULT
+
 }
