@@ -6,55 +6,95 @@
 /*   By: jgermany <nyaritakunai@outlook.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 13:08:05 by jgermany          #+#    #+#             */
-/*   Updated: 2022/12/20 13:23:11 by jgermany         ###   ########.fr       */
+/*   Updated: 2022/12/20 17:55:39 by jgermany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
+
+void	debug_str(const char *s, char *str1, char *str2)
+{
+	printf("\t[ft_split] s %% 16 -> %li\n", (intptr_t)s % 16);
+	printf("\t[ft_split] str1 - s -> %li\n", (intptr_t)(str1 - s));
+	printf("\t[ft_split] str2 - s -> %li\n", (intptr_t)(str2 - s));
+	printf("\t[ft_split] str2 - str1 -> %li\n\n", (intptr_t)(str2 - str1));
+}
 
 static size_t	ft_arrlen(char **strs)
 {
+	int		i;
 	size_t	len;
 
+	i = -1;
 	len = 0;
-	while (strs[len])
-		len++;
+	while (strs[++i])
+		if (*strs[i])
+			len++;
 	return (len);
 }
 
+void	debug_strs(char **strs, int nl)
+{
+	printf("\t[debug_strs] ft_arrlen(strs) = %lu\n", ft_arrlen(strs));
+	while (*strs)
+		printf("\t\t-> '%s'\n", *strs++);
+	if (nl)
+		printf("\n");
+}
+
+// The case where two arr are empty will come back (and I have an idea on how 
+// to solve it)
+// First - The Algo
+// Then - Memory (free those empty strs)
 static char	**ft_arrjoin(char **strs1, char **strs2)
 {
 	char	**strs;
+	size_t	i;
+	size_t	j;
 	size_t	len1;
 	size_t	len2;
-	size_t	i;
 
 	len1 = ft_arrlen(strs1);
 	len2 = ft_arrlen(strs2);
+	// if (!len1 && !len2) // : len1++;
+	// 	printf("[ft_arrjoin] OUCH\n");
+	// debug_strs(strs1, 0);
+	// debug_strs(strs2, 0);
 	strs = (char **)malloc((len1 + len2 + 1) * sizeof(char *));
+	// printf("\t[debug_strs] new str len = %lu\n", len1 + len2 + 1);
 	if (!strs)
 		return ((char **)0);
+	j = 0;
 	i = 0;
 	while (strs1[i])
 	{
-		strs[i] = strs1[i];
+		// printf("\t[debug_strs] *strs1[%lu] = '%s'\n", i, strs1[i]);
+		if (*strs1[i])
+		{
+			strs[j] = strs1[i];
+			j++;
+		}
 		i++;
 	}
-	while (strs2[i - len1])
+	i = 0;
+	while (strs2[i])
 	{
-		strs[i] = strs2[i - len1];
+		// printf("\t[debug_strs] *strs2[%lu] = '%s'\n", i, strs2[i]);
+		if (*strs2[i])
+		{
+			strs[j] = strs2[i];
+			j++;
+		}
 		i++;
 	}
-	strs[i] = (char *)0;
+	strs[j] = (char *)0;
+	// debug_strs(strs, 1);
 	free(strs1);
 	free(strs2);
 	return (strs);
 }
 
-#include <stdio.h>
-
-// EXPERIMENT - Let's try a smarter split, that means no split with an empty 
-// string. After that, if it works, let's HUNT those mf leaks!
 char	**ft_split(char const *s, char c)
 {
 	char	**strs;
@@ -69,40 +109,9 @@ char	**ft_split(char const *s, char c)
 	{
 		str1 = ft_substr(s, 0, (sep - s)); 
 		str2 = ft_substr(s, ((sep - s) + 1), (slen - (sep - s + 1)));
-		// I want to tell apart stack memory from heap memory
-		// if (!((long)(str1 - s) > (128 * sizeof(char))))// MEH
-		if ((unsigned long long)s % 16 == 0) // Not every heap address starts by 0
+		if ((intptr_t)s % 16 == 0 || !((intptr_t)(str1 - s) > 128128))
 			free((char *)s);
-
-		printf("\t[ft_split] str1(%p) - s(%p) -> %li | str2(%p) - s(%p) -> %li\n",
-			str1, s, (str1 - s)/8, str2, s, (str2 - s)/8);
-		printf("\t[ft_split] str2(%p) - str1(%p) -> %li\n\n", str2, str1,
-			(str2 - str1)/8);
-		if (*str1 && !*str2)
-		{
-			strs = ft_split(str1, c);
-			free(str2);
-		}
-		else if (*str2 && !*str1)
-		{
-			strs = ft_split(str2, c);
-			free(str1);
-		}
-		else if (*str1 && *str2)
-			strs = ft_arrjoin(ft_split(str1, c), ft_split(str2, c));
-		else
-		{
-			strs = NULL;
-			free(str1);
-			free(str2);
-		}
-		// AND WHAT ABOUT THE CASE WHERE both !*str1 && !*str2 ? point
-		// to a null character...?
-			// I have to return something as an array of str but there is
-			// no str to return... So what should I do? Return a strs
-			// with a str pointing to a null ?
-			// So getting back to where I started ???
-		// Maybe I should try the second idea ?? 
+		strs = ft_arrjoin(ft_split(str1, c), ft_split(str2, c));
 	}
 	else
 	{

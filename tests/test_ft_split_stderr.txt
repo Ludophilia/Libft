@@ -1,1 +1,259 @@
-make: *** [Makefile:24: split] Interrupt
+==42592== Invalid free() / delete / delete[] / realloc()
+==42592==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==42592==    by 0x404876: freeTab(char**) (ft_split_test.cpp:16)
+==42592==    by 0x404ACC: main (ft_split_test.cpp:41)
+==42592==  Address 0x40609e is in a r-- mapped file /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out segment
+==42592== 
+==42592== Invalid free() / delete / delete[] / realloc()
+==42592==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==42592==    by 0x404876: freeTab(char**) (ft_split_test.cpp:16)
+==42592==    by 0x404C0D: main (ft_split_test.cpp:56)
+==42592==  Address 0x4060af is in a r-- mapped file /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out segment
+==42592== 
+==42592== Invalid free() / delete / delete[] / realloc()
+==42592==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==42592==    by 0x404876: freeTab(char**) (ft_split_test.cpp:16)
+==42592==    by 0x404C63: main (ft_split_test.cpp:61)
+==42592==  Address 0x4060f4 is in a r-- mapped file /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out segment
+==42592== 
+==42592== Invalid free() / delete / delete[] / realloc()
+==42592==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==42592==    by 0x404876: freeTab(char**) (ft_split_test.cpp:16)
+==42592==    by 0x404D00: main (ft_split_test.cpp:69)
+==42592==  Address 0x4de6170 is 0 bytes inside a block of size 11 free'd
+==42592==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==42592==    by 0x404CF4: main (ft_split_test.cpp:69)
+==42592==  Block was alloc'd at
+==42592==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==42592==    by 0x4C4E60E: strdup (strdup.c:42)
+==42592==    by 0x404C77: main (ft_split_test.cpp:64)
+==42592== 
+==42592== Invalid free() / delete / delete[] / realloc()
+==42592==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==42592==    by 0x404D91: main (ft_split_test.cpp:76)
+==42592==  Address 0x4de6260 is 0 bytes inside a block of size 12 free'd
+==42592==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==42592==    by 0x405533: ft_split (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x404D2C: main (ft_split_test.cpp:72)
+==42592==  Block was alloc'd at
+==42592==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==42592==    by 0x4C4E60E: strdup (strdup.c:42)
+==42592==    by 0x404D14: main (ft_split_test.cpp:71)
+==42592== 
+==42592== Invalid free() / delete / delete[] / realloc()
+==42592==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==42592==    by 0x404E2E: main (ft_split_test.cpp:83)
+==42592==  Address 0x4de6490 is 0 bytes inside a block of size 12 free'd
+==42592==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==42592==    by 0x405533: ft_split (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x404DC9: main (ft_split_test.cpp:79)
+==42592==  Block was alloc'd at
+==42592==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==42592==    by 0x4C4E60E: strdup (strdup.c:42)
+==42592==    by 0x404DB1: main (ft_split_test.cpp:78)
+==42592== 
+==42592== Invalid free() / delete / delete[] / realloc()
+==42592==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==42592==    by 0x404EDF: main (ft_split_test.cpp:91)
+==42592==  Address 0x4de66c0 is 0 bytes inside a block of size 13 free'd
+==42592==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==42592==    by 0x405533: ft_split (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x404E66: main (ft_split_test.cpp:86)
+==42592==  Block was alloc'd at
+==42592==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==42592==    by 0x4C4E60E: strdup (strdup.c:42)
+==42592==    by 0x404E4E: main (ft_split_test.cpp:85)
+==42592== 
+==42592== Invalid free() / delete / delete[] / realloc()
+==42592==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==42592==    by 0x4050C1: main (ft_split_test.cpp:116)
+==42592==  Address 0x4de6a80 is 0 bytes inside a block of size 25 free'd
+==42592==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==42592==    by 0x405533: ft_split (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x404F17: main (ft_split_test.cpp:95)
+==42592==  Block was alloc'd at
+==42592==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==42592==    by 0x4C4E60E: strdup (strdup.c:42)
+==42592==    by 0x404EFF: main (ft_split_test.cpp:94)
+==42592== 
+==42592== 1 bytes in 1 blocks are definitely lost in loss record 1 of 21
+==42592==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==42592==    by 0x40564E: ft_substr (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x4054D4: ft_split (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x4049AC: main (ft_split_test.cpp:26)
+==42592== 
+==42592== 1 bytes in 1 blocks are definitely lost in loss record 2 of 21
+==42592==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==42592==    by 0x40564E: ft_substr (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x4054D4: ft_split (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x405545: ft_split (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x4049AC: main (ft_split_test.cpp:26)
+==42592== 
+==42592== 1 bytes in 1 blocks are definitely lost in loss record 3 of 21
+==42592==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==42592==    by 0x40564E: ft_substr (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x4054D4: ft_split (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x405545: ft_split (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x405545: ft_split (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x405545: ft_split (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x4049AC: main (ft_split_test.cpp:26)
+==42592== 
+==42592== 1 bytes in 1 blocks are definitely lost in loss record 4 of 21
+==42592==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==42592==    by 0x40564E: ft_substr (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x4054D4: ft_split (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x405545: ft_split (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x405545: ft_split (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x405545: ft_split (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x405545: ft_split (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x405545: ft_split (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x4049AC: main (ft_split_test.cpp:26)
+==42592== 
+==42592== 1 bytes in 1 blocks are definitely lost in loss record 5 of 21
+==42592==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==42592==    by 0x40564E: ft_substr (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x405507: ft_split (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x405545: ft_split (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x405545: ft_split (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x405545: ft_split (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x405545: ft_split (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x405545: ft_split (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x4049AC: main (ft_split_test.cpp:26)
+==42592== 
+==42592== 1 bytes in 1 blocks are definitely lost in loss record 6 of 21
+==42592==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==42592==    by 0x40564E: ft_substr (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x4054D4: ft_split (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x404AE5: main (ft_split_test.cpp:43)
+==42592== 
+==42592== 1 bytes in 1 blocks are definitely lost in loss record 7 of 21
+==42592==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==42592==    by 0x40564E: ft_substr (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x4054D4: ft_split (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x405545: ft_split (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x404AE5: main (ft_split_test.cpp:43)
+==42592== 
+==42592== 1 bytes in 1 blocks are definitely lost in loss record 8 of 21
+==42592==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==42592==    by 0x40564E: ft_substr (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x4054D4: ft_split (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x405545: ft_split (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x405545: ft_split (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x404AE5: main (ft_split_test.cpp:43)
+==42592== 
+==42592== 1 bytes in 1 blocks are definitely lost in loss record 9 of 21
+==42592==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==42592==    by 0x40564E: ft_substr (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x4054D4: ft_split (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x405545: ft_split (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x405545: ft_split (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x405545: ft_split (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x404AE5: main (ft_split_test.cpp:43)
+==42592== 
+==42592== 1 bytes in 1 blocks are definitely lost in loss record 10 of 21
+==42592==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==42592==    by 0x40564E: ft_substr (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x4054D4: ft_split (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x405545: ft_split (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x405545: ft_split (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x405545: ft_split (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x405545: ft_split (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x404AE5: main (ft_split_test.cpp:43)
+==42592== 
+==42592== 1 bytes in 1 blocks are definitely lost in loss record 11 of 21
+==42592==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==42592==    by 0x40564E: ft_substr (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x405507: ft_split (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x405545: ft_split (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x405545: ft_split (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x405545: ft_split (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x405545: ft_split (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x404AE5: main (ft_split_test.cpp:43)
+==42592== 
+==42592== 1 bytes in 1 blocks are definitely lost in loss record 12 of 21
+==42592==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==42592==    by 0x40564E: ft_substr (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x405507: ft_split (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x404D2C: main (ft_split_test.cpp:72)
+==42592== 
+==42592== 1 bytes in 1 blocks are definitely lost in loss record 13 of 21
+==42592==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==42592==    by 0x40564E: ft_substr (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x4054D4: ft_split (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x404DC9: main (ft_split_test.cpp:79)
+==42592== 
+==42592== 1 bytes in 1 blocks are definitely lost in loss record 14 of 21
+==42592==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==42592==    by 0x40564E: ft_substr (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x4054D4: ft_split (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x404E66: main (ft_split_test.cpp:86)
+==42592== 
+==42592== 1 bytes in 1 blocks are definitely lost in loss record 15 of 21
+==42592==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==42592==    by 0x40564E: ft_substr (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x405507: ft_split (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x405545: ft_split (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x404E66: main (ft_split_test.cpp:86)
+==42592== 
+==42592== 1 bytes in 1 blocks are definitely lost in loss record 16 of 21
+==42592==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==42592==    by 0x40564E: ft_substr (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x4054D4: ft_split (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x404F17: main (ft_split_test.cpp:95)
+==42592== 
+==42592== 1 bytes in 1 blocks are definitely lost in loss record 17 of 21
+==42592==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==42592==    by 0x40564E: ft_substr (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x4054D4: ft_split (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x405545: ft_split (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x404F17: main (ft_split_test.cpp:95)
+==42592== 
+==42592== 1 bytes in 1 blocks are definitely lost in loss record 18 of 21
+==42592==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==42592==    by 0x40564E: ft_substr (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x4054D4: ft_split (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x405545: ft_split (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x405545: ft_split (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x405545: ft_split (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x405545: ft_split (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x404F17: main (ft_split_test.cpp:95)
+==42592== 
+==42592== 1 bytes in 1 blocks are definitely lost in loss record 19 of 21
+==42592==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==42592==    by 0x40564E: ft_substr (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x4054D4: ft_split (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x405545: ft_split (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x405545: ft_split (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x405545: ft_split (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x405545: ft_split (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x405545: ft_split (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x405545: ft_split (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x404F17: main (ft_split_test.cpp:95)
+==42592== 
+==42592== 1 bytes in 1 blocks are definitely lost in loss record 20 of 21
+==42592==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==42592==    by 0x40564E: ft_substr (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x4054D4: ft_split (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x405545: ft_split (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x405545: ft_split (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x405545: ft_split (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x405545: ft_split (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x405545: ft_split (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x405545: ft_split (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x405545: ft_split (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x404F17: main (ft_split_test.cpp:95)
+==42592== 
+==42592== 7 bytes in 7 blocks are definitely lost in loss record 21 of 21
+==42592==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==42592==    by 0x40564E: ft_substr (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x4054D4: ft_split (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x405545: ft_split (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x405545: ft_split (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x405545: ft_split (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x405545: ft_split (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x405545: ft_split (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x405545: ft_split (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x405545: ft_split (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x405545: ft_split (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592==    by 0x405545: ft_split (in /mnt/nfs/homes/jgermany/Documents/42/Libft/libftTester/a.out)
+==42592== 

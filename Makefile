@@ -6,7 +6,7 @@
 #    By: jgermany <nyaritakunai@outlook.com>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/30 13:02:44 by jgermany          #+#    #+#              #
-#    Updated: 2022/12/19 22:52:57 by jgermany         ###   ########.fr        #
+#    Updated: 2022/12/20 14:50:31 by jgermany         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,7 @@ $(NAME): $(OBMN)
 	$(CC) $(CCFL) $(INCFL)$(INCDIR) $(SRCFL) $< $(OUTFL) $@
 
 test_%: all
-	$(CC) $(CCFL) $(INCFL)$(INCDIR) -lft -L. tests/$@.c && ./a.out
+	$(CC) $(CCFL) $(INCFL)$(INCDIR) tests/$@.c -lft -L. && ./a.out
 	rm a.out
 
 re: fclean all
