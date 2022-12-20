@@ -6,7 +6,7 @@
 /*   By: jgermany <nyaritakunai@outlook.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 13:08:05 by jgermany          #+#    #+#             */
-/*   Updated: 2022/12/20 00:13:49 by jgermany         ###   ########.fr       */
+/*   Updated: 2022/12/20 13:23:11 by jgermany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,15 @@ char	**ft_split(char const *s, char c)
 	{
 		str1 = ft_substr(s, 0, (sep - s)); 
 		str2 = ft_substr(s, ((sep - s) + 1), (slen - (sep - s + 1)));
-		printf("\t[ft_split] str1 -> '%s', str2 -> '%s'\n", str1, str2);
+		// I want to tell apart stack memory from heap memory
+		// if (!((long)(str1 - s) > (128 * sizeof(char))))// MEH
+		if ((unsigned long long)s % 16 == 0) // Not every heap address starts by 0
+			free((char *)s);
+
+		printf("\t[ft_split] str1(%p) - s(%p) -> %li | str2(%p) - s(%p) -> %li\n",
+			str1, s, (str1 - s)/8, str2, s, (str2 - s)/8);
+		printf("\t[ft_split] str2(%p) - str1(%p) -> %li\n\n", str2, str1,
+			(str2 - str1)/8);
 		if (*str1 && !*str2)
 		{
 			strs = ft_split(str1, c);
@@ -80,8 +88,14 @@ char	**ft_split(char const *s, char c)
 			strs = ft_split(str2, c);
 			free(str1);
 		}
-		if (*str1 && *str2)
+		else if (*str1 && *str2)
 			strs = ft_arrjoin(ft_split(str1, c), ft_split(str2, c));
+		else
+		{
+			strs = NULL;
+			free(str1);
+			free(str2);
+		}
 		// AND WHAT ABOUT THE CASE WHERE both !*str1 && !*str2 ? point
 		// to a null character...?
 			// I have to return something as an array of str but there is
