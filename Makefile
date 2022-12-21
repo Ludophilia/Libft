@@ -6,7 +6,7 @@
 #    By: jgermany <nyaritakunai@outlook.com>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/30 13:02:44 by jgermany          #+#    #+#              #
-#    Updated: 2022/12/21 15:22:29 by jgermany         ###   ########.fr        #
+#    Updated: 2022/12/21 22:09:27 by jgermany         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,38 +14,42 @@ NAME = libft.a
 
 CC = gcc
 CCFL = -Wall -Wextra -Werror
-SRCFL = -c
-OUTFL = -o
-INCFL = -I
-
-AR = ar
-ARFL = -rcs
 
 INCDIR = .
-CMN = $(wildcard ft_[abcimpst]*.c)
-CBN = $(wildcard ft*_bonus.c)
-OBMN = $(CMN:.c=.o)
+LIB = ft
+LIBDIR = .
+
+CM = $(wildcard ft_[abcimpst]*.c)
+OBM = $(CM:.c=.o)
+CB = $(wildcard ft*_bonus.c)
+OBB = $(CB:.c=.o)
+
+AR = ar
+ARFLM = -rcs
+ARFLB = -qs
+
+VG = valgrind
+VGFL = --leak-check=full --show-leak-kinds=all --track-origins=yes 
 
 all: $(NAME)
-$(NAME): $(OBMN)
-	$(AR) $(ARFL) $@ $^
+$(NAME): $(OBM)
+	$(AR) $(ARFLM) $@ $^
 %.o: %.c
-	$(CC) $(CCFL) $(INCFL)$(INCDIR) $(SRCFL) $< $(OUTFL) $@
-
+	$(CC) $(CCFL) -I$(INCDIR) -c $< -o $@
 test_%: all
-	$(CC) $(CCFL) $(INCFL)$(INCDIR) tests/$@.c -lft -L. && ./a.out
-	valgrind --leak-check=full --show-leak-kinds=all \
-		--track-origins=yes ./a.out
+	$(CC) $(CCFL) -I$(INCDIR) tests/$@.c -l$(LIB) -L$(LIBDIR) && ./a.out
+	$(VG) $(VGFL) ./a.out
 	rm a.out
 
 re: fclean all
 fclean: clean
 	rm $(NAME)
 clean:
-	rm $(OBMN)
+	rm $(OBM) $(OBB)
 xclean:
 	rm $(NAME)
 
-bonus:
-	@echo "bonus are there, but there is still work to do ;)"
+bonus: $(NAME) $(OBB)
+	$(AR) $(ARFLB) $^
+
 .PHONY: all clean fclean xclean re bonus test_%
