@@ -6,7 +6,7 @@
 /*   By: jgermany <nyaritakunai@outlook.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 21:50:13 by jgermany          #+#    #+#             */
-/*   Updated: 2022/12/21 16:30:45 by jgermany         ###   ########.fr       */
+/*   Updated: 2022/12/21 16:43:45 by jgermany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,25 +41,22 @@ void	ft_freestrs(char **strs)
 void	ft_split_testcase(char *str, char sep)
 {
 	char	**strs;
-	
+
 	printf("\nft_split(\"%s\", \'%c\'):\n", str, sep);
 	strs = ft_split(str, sep);
 	ft_printstrs(strs);
 	ft_freestrs(strs);
 }
 
+// The last one SHOULD SEGFAULT
 int	main(void)
 {
 	ft_split_testcase("hello world ", ' ');
-
 	ft_split_testcase("  12 34", ' ');
 	ft_split_testcase("   12    34 ", ' ');
 	ft_split_testcase("   12    34          ", ' ');
-
 	ft_split_testcase("  tripouille  42  ", ' ');
 	ft_split_testcase(" ", ' ');
-
 	ft_split_testcase("tripouille", 0);
-	// ft_split_testcase((char *)0, 0); // SHOULD SEGFAULT
-
+	ft_split_testcase((char *)0, 0);
 }
