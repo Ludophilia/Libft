@@ -6,7 +6,7 @@
 /*   By: jgermany <nyaritakunai@outlook.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 19:27:18 by jgermany          #+#    #+#             */
-/*   Updated: 2022/12/10 14:55:17 by jgermany         ###   ########.fr       */
+/*   Updated: 2022/12/21 17:00:30 by jgermany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ static size_t	ft_lennbr(int n)
 	return (len);
 }
 
-// YO FAM, MEMORY LEAK SAFE OR WHOT ?
 char	*ft_itoa(int n)
 {
 	char	*str;

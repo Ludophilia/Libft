@@ -6,13 +6,12 @@
 /*   By: jgermany <nyaritakunai@outlook.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 14:55:29 by jgermany          #+#    #+#             */
-/*   Updated: 2022/12/13 17:35:48 by jgermany         ###   ########.fr       */
+/*   Updated: 2022/12/21 17:17:23 by jgermany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-// MEMORY LEAK FREE OR WOT?
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
 	char	*ns;
