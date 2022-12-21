@@ -6,14 +6,33 @@
 /*   By: jgermany <nyaritakunai@outlook.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 13:08:05 by jgermany          #+#    #+#             */
-/*   Updated: 2022/12/20 22:27:56 by jgermany         ###   ########.fr       */
+/*   Updated: 2022/12/21 15:21:36 by jgermany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
 
-static size_t	ft_arrlen(char **strs)
+// void	debug_str(const char *s, char *str1, char *str2)
+// {
+// 	printf("\t[ft_split] s %% 16 -> %li\n", (intptr_t)s % 16);
+// 	printf("\t[ft_split] str1 - s -> %li\n", (intptr_t)(str1 - s));
+// 	printf("\t[ft_split] str2 - s -> %li\n", (intptr_t)(str2 - s));
+// 	printf("\t[ft_split] str2 - str1 -> %li\n\n", (intptr_t)(str2 - str1));
+// }
+
+// void	debug_strs(char **strs, int nl)
+// {
+// 	printf("\t[debug_strs] arrlen = %lu\n", ft_wordslen(strs));
+// 	if (!*strs)
+// 		printf("\t\t-> just a null (char*)\n");
+// 	while (*strs)
+// 		printf("\t\t-> '%s'\n", *strs++);
+// 	if (nl)
+// 		printf("\n");
+// }
+
+static size_t	ft_wordslen(char **strs)
 {
 	int		i;
 	size_t	len;
@@ -21,31 +40,11 @@ static size_t	ft_arrlen(char **strs)
 	i = -1;
 	len = 0;
 	while (strs[++i])
-		if (*strs[i])
 			len++;
+		// if (*strs[i])
 	return (len);
 }
 
-void	debug_str(const char *s, char *str1, char *str2)
-{
-	printf("\t[ft_split] s %% 16 -> %li\n", (intptr_t)s % 16);
-	printf("\t[ft_split] str1 - s -> %li\n", (intptr_t)(str1 - s));
-	printf("\t[ft_split] str2 - s -> %li\n", (intptr_t)(str2 - s));
-	printf("\t[ft_split] str2 - str1 -> %li\n\n", (intptr_t)(str2 - str1));
-}
-
-void	debug_strs(char **strs, int nl)
-{
-	printf("\t[debug_strs] arrlen = %lu\n", ft_arrlen(strs));
-	if (!*strs)
-		printf("\t\t-> just a null (char*)\n");
-	while (*strs)
-		printf("\t\t-> '%s'\n", *strs++);
-	if (nl)
-		printf("\n");
-}
-
-// First - The Algo
 // Then - Memory (free those empty strs)
 static char	**ft_join_words(char **strs1, char **strs2)
 {
@@ -55,10 +54,8 @@ static char	**ft_join_words(char **strs1, char **strs2)
 	size_t	len1;
 	size_t	len2;
 
-	len1 = ft_arrlen(strs1);
-	len2 = ft_arrlen(strs2);
-	// debug_strs(strs1, 0);
-	// debug_strs(strs2, 0);
+	len1 = ft_wordslen(strs1);
+	len2 = ft_wordslen(strs2);
 	strs = (char **)malloc((len1 + len2 + 1) * sizeof(char *));
 	if (!strs)
 		return ((char **)0);
@@ -66,35 +63,27 @@ static char	**ft_join_words(char **strs1, char **strs2)
 	i = 0;
 	while (strs1[i])
 	{
-		// printf("\t[debug_strs] *strs1[%lu] = '%s'\n", i, strs1[i]);
 		if (*strs1[i])
-		{
-			strs[j] = strs1[i]; // strs[j++] 
-			j++;
-		}
-		else
-			free(strs1[i]);
+			strs[j++] = strs1[i];
+		// else
+		// 	free(strs1[i]);
 		i++;
 	}
 	i = 0;
 	while (strs2[i])
 	{
-		// printf("\t[debug_strs] *strs2[%lu] = '%s'\n", i, strs2[i]);
 		if (*strs2[i])
-		{
-			strs[j] = strs2[i]; // strs[j++] 
-			j++;
-		}
-		else
-			free(strs2[i]);
+			strs[j++] = strs2[i];
+		// else
+		// 	free(strs2[i]);
 		i++;
 	}
 	strs[j] = (char *)0;
-	// debug_strs(strs, 1);
 	free(strs1);
 	free(strs2);
 	return (strs);
 }
+
 char	**ft_create_word(char *s)
 {
 	char	**strs;
@@ -104,6 +93,8 @@ char	**ft_create_word(char *s)
 	len = 0;
 	if (*s)
 		len++;
+	else
+		free(s);
 	strs = (char **)malloc((len + 1) * sizeof(char *));
 	if (!strs)
 		return ((char **)0);
@@ -116,7 +107,37 @@ char	**ft_create_word(char *s)
 	return (strs);
 }
 
-// Returns sometimes ['0'] (arrjoin) and sometimes [''. '0'] (else branch)
+// Solve memory issues:
+
+// IDEA #1 - (In the end : [03] strs [05] arr of strs are still remaining, as 
+// wanted. Could work, let's test that...)
+	// Instead of using substr, why not start like that ?
+	// ft_split (one instance)
+		// - [+01] Duplicate str s
+		// - look for sep in duplicate
+		// - if (sep) [maybe a prob if sep is the only thing in the duplicate]
+			// - replace sep by a '\0' (this will effectively create a substr
+			// within the duplicate) thus making...
+				// - str1 = starts at duplicate, \0 terminated at sep
+				// - str2 = starts at sep + 1, \0 terminated at end of duplicate
+			// - join_words(ft_split(str1, c), ft_split(str2, c)) if needed
+			// a new duplicate [+02] will be created and will be freed once
+			// split (instance) will reach the end of block [-02]
+				// within join_words :
+				// - a new arr of str [+05] will be created that could on not be
+				// freed. Depends if it's the top one
+				// the arr of strs used to create the new arr of str will be 
+				// destroyed once its content (those [03] that should not be
+				// destroyed) is copied [-04]
+		// - else
+			// - ft_create_word((char *)s) with the duplicate. The duplicate
+			// should not be freed, this is taken care of by split.
+				// - if the duplicate is not an empty str, a new duplicate [+03]
+				// that should not be freed will be created and added to a 
+				// new arr of str [+04] that will be freed in join_words
+				// - otherwise, the arr of str will just be comprised of a null 
+				// (char *).
+		// - [-01] free duplicate(ft_split(str1, c), ft_split(str2, c))
 char	**ft_split(char const *s, char c)
 {
 	char	**strs;
