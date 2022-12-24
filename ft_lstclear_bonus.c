@@ -6,24 +6,25 @@
 /*   By: jgermany <nyaritakunai@outlook.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 14:44:00 by jgermany          #+#    #+#             */
-/*   Updated: 2022/12/21 21:45:21 by jgermany         ###   ########.fr       */
+/*   Updated: 2022/12/23 21:26:35 by jgermany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-// NULL protection please ?
 void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	t_list	*cnode;
+	t_list	*node;
 	t_list	*next;
 
-	cnode = *lst;
-	while (cnode)
+	if (!lst)
+		return ;
+	node = *lst;
+	while (node)
 	{
-		next = cnode->next;
-		ft_lstdelone(cnode, del);
-		cnode = next;
+		next = node->next;
+		ft_lstdelone(node, del);
+		node = next;
 	}
 	*lst = (t_list *)0;
 }
