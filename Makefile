@@ -6,32 +6,32 @@
 #    By: jgermany <nyaritakunai@outlook.com>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/30 13:02:44 by jgermany          #+#    #+#              #
-#    Updated: 2022/12/25 19:46:40 by jgermany         ###   ########.fr        #
+#    Updated: 2022/12/25 23:09:39 by jgermany         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libft.a
+NAME 		= libft.a
 
-CC = gcc
-CCFL = -Wall -Wextra -Werror
+CC 			= gcc
+CCFL 		= -Wall -Wextra -Werror
 
-INCDIR = .
-LIB = ft
-LIBDIR = .
+INCDIR 		= .
+LIB 		= ft
+LIBDIR 		= .
 
-CM = $(wildcard ft_[abcimpst]*.c)
-OBM = $(CM:.c=.o)
-CB = $(wildcard ft*_bonus.c)
-OBB = $(CB:.c=.o)
+CM 			= $(wildcard ft_[abcimpst]*.c)
+OBM 		= $(CM:.c=.o)
+CB 			= $(wildcard ft*_bonus.c)
+OBB 		= $(CB:.c=.o)
 
-AR = ar
-ARFLM = -rcs
-ARFLB = -rcs
+AR 			= ar
+ARFLM 		= -rcs
+ARFLB 		= -rcs
 
-UNAME = $(shell uname -s)
+UNAME 		= $(shell uname -s)
 ifeq ($(UNAME), Linux)
-	VG = valgrind
-	VGFL = --leak-check=full --show-leak-kinds=all --track-origins=yes 
+	VG 		= valgrind
+	VGFL 	= --leak-check=full --show-leak-kinds=all --track-origins=yes 
 endif
 
 all: $(NAME)
