@@ -6,7 +6,7 @@
 #    By: jgermany <nyaritakunai@outlook.com>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/30 13:02:44 by jgermany          #+#    #+#              #
-#    Updated: 2022/12/25 16:13:12 by jgermany         ###   ########.fr        #
+#    Updated: 2022/12/25 19:46:40 by jgermany         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,6 +39,7 @@ $(NAME): $(OBM)
 	$(AR) $(ARFLM) $@ $^
 bonus: $(OBB)
 	$(AR) $(ARFLB) $(NAME) $^
+
 %.o: %.c
 	$(CC) $(CCFL) -I$(INCDIR) -c $< -o $@
 test_%: all
@@ -48,10 +49,9 @@ test_%: all
 
 re: fclean all
 fclean: clean
-	rm $(NAME)
+	@-rm $(NAME)
 clean:
-	rm $(OBM) $(OBB)
-xclean:
-	rm $(NAME)
+	@-rm $(OBM)
+	@-rm $(OBB)
 
 .PHONY: all bonus clean fclean xclean re
