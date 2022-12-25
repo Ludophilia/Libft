@@ -6,7 +6,7 @@
 #    By: jgermany <nyaritakunai@outlook.com>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/30 13:02:44 by jgermany          #+#    #+#              #
-#    Updated: 2022/12/25 23:17:08 by jgermany         ###   ########.fr        #
+#    Updated: 2022/12/25 23:22:37 by jgermany         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,4 +55,4 @@ clean:
 			@-rm $(OBM)
 			@-rm $(OBB)
 
-.PHONY: 	all bonus clean fclean xclean re
+.PHONY: 	all bonus re fclean clean
