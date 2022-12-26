@@ -26,5 +26,5 @@
 
 # Testers
 libftTester/
-Libftest
-#main.c
+Libftest/
+tests/
