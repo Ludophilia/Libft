@@ -6,7 +6,7 @@
 #    By: jgermany <nyaritakunai@outlook.com>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/30 13:02:44 by jgermany          #+#    #+#              #
-#    Updated: 2022/12/26 13:07:22 by jgermany         ###   ########.fr        #
+#    Updated: 2022/12/26 20:37:22 by jgermany         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,11 +48,16 @@ test_%: 	all
 			$(VG) $(VGFL) ./a.out
 			rm a.out
 
+so:
+			$(CC) $(CCFL) -fPIC -I$(INCDIR) -c $(CM) $(CB)
+			$(CC) $(CCFL) -shared -o libft.so $(OBM) $(OBB)
+
 re: 		fclean all
 fclean: 	clean
 			@-rm $(NAME)
 clean:
 			@-rm $(OBM)
 			@-rm $(OBB)
+			@-rm $(wildcard *.so)
 
 .PHONY: 	all bonus re fclean clean
