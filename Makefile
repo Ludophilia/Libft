@@ -6,13 +6,13 @@
 #    By: jgermany <nyaritakunai@outlook.com>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/30 13:02:44 by jgermany          #+#    #+#              #
-#    Updated: 2022/12/26 20:48:42 by jgermany         ###   ########.fr        #
+#    Updated: 2022/12/27 20:07:10 by jgermany         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME 		= libft.a
 
-CC 			= gcc
+CC 			= cc
 CCFL 		= -Wall -Wextra -Werror
 
 INCDIR 		= .

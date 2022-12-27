@@ -28,3 +28,6 @@
 libftTester/
 Libftest/
 tests/
+
+# Extra files
+README.md
