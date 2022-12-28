@@ -28,7 +28,7 @@
 # Testers
 libftTester/
 Libftest/
-tests/
+# tests/
 
 # Extra files
 README.md

@@ -6,7 +6,7 @@
 #    By: jgermany <nyaritakunai@outlook.com>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/30 13:02:44 by jgermany          #+#    #+#              #
-#    Updated: 2022/12/28 19:02:56 by jgermany         ###   ########.fr        #
+#    Updated: 2022/12/28 23:41:02 by jgermany         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,9 +57,9 @@ re: 		fclean all
 fclean: 	clean
 			@-rm -f $(NAME)
 clean:
-			@-rm -f $(OBM)
-			@-rm -f $(OBB)
-			@-rm -f $(wildcard *.so)
-			@-rm -f a.out
+			@rm -f $(OBM)
+			@rm -f $(OBB)
+			@rm -f $(wildcard *.so)
+			@rm -f a.out
 
 .PHONY: 	all bonus re fclean clean

@@ -6,7 +6,7 @@
 /*   By: jgermany <nyaritakunai@outlook.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 16:36:16 by jgermany          #+#    #+#             */
-/*   Updated: 2022/12/28 18:59:20 by jgermany         ###   ########.fr       */
+/*   Updated: 2022/12/28 23:39:33 by jgermany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,14 @@
 
 void	*ft_calloc(size_t nmemb, size_t size)
 {
-	void	*arr;
+	void		*arr;
+	long double	total;
+	long double	max;
 
-	// Please manage this edge case better
-	if ((nmemb && size) && ((nmemb == SIZE_MAX) || (size == SIZE_MAX)))
+	total = ((long double)nmemb * (long double)size);
+	max = SIZE_MAX;
+	if (total >= max)
 		return ((void *)0);
-	if (!nmemb)
-		nmemb = 1;
-	if (!size)
-		size = 1;
 	arr = malloc(nmemb * size);
 	if (arr)
 		ft_bzero(arr, nmemb * size);
