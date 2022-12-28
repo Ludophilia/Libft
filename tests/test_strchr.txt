@@ -1,0 +1,61 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    ft_strchr.txt                                      :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: jgermany <nyaritakunai@outlook.com>        +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/11/25 11:26:54 by jgermany          #+#    #+#              #
+#    Updated: 2022/12/16 22:29:57 by jgermany         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+Libft - ft_strchr 🟢🔴
+
+Evil tests made with 😈😈😈 passion
+
+Context : The strchr() function returns a pointer to the first occurrence
+       of the character c in the string s.
+
+Test material
+	- read only string ex : "hello"
+	- Original strchr (#include <string.h>) for comparison
+
+Prototype
+	char	*ft_strchr(const char *s, int c)
+
+[🟢] Happy path
+	ft_strchr("hello", 'l')
+		-> "llo"
+	ft_strchr("hello", 108)
+		-> "llo"
+
+[🟢] Modulo what??
+	ft_strchr("hello", 108 + 256)
+		-> "llo"
+	ft_strchr("hello", 'l' + 16 * 256)
+		-> "llo"
+
+[🟢] Empty str
+	ft_strchr("", 'l')
+		-> Null
+
+[🟢] Null address
+	ft_strchr((char *)0, 32)
+		-> Segfault
+
+[🟢] Find the Terminator
+	ft_strchr("hello", '\x0')
+		-> ""
+	ft_strchr("", '\x0')
+		-> ""
+
+[🟢] Nowhere to be found
+	ft_strchr("hello", 'x')
+		-> Null
+	ft_strchr("hello", -2147483647)
+		-> Null
+	ft_strchr("hello", -1)
+		-> Null
+	ft_strchr("hello", 4242)
+		-> Null
