@@ -6,7 +6,7 @@
 #    By: jgermany <nyaritakunai@outlook.com>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/30 13:02:44 by jgermany          #+#    #+#              #
-#    Updated: 2022/12/27 20:07:10 by jgermany         ###   ########.fr        #
+#    Updated: 2022/12/29 00:20:20 by jgermany         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,21 +44,22 @@ bonus: 		$(OBB)
 %.o: 		%.c
 			$(CC) $(CCFL) -I$(INCDIR) -c $< -o $@
 test_%: 	all
-			$(CC) $(CCFL) -I$(INCDIR) tests/$@.c -l$(LIB) -L$(LIBDIR) \
-			&& ./a.out
+			@$(CC) $(CCFL) -I$(INCDIR) tests/$@.c -l$(LIB) -L$(LIBDIR)
+			@./a.out
+mtest_%:	test_%
 			$(VG) $(VGFL) ./a.out
-			rm a.out
 
 so:
 			$(CC) $(CCFL) -fPIC -I$(INCDIR) -c $(CM) $(CB)
 			$(CC) $(CCFL) -shared -o libft.so $(OBM) $(OBB)
-
+	
 re: 		fclean all
 fclean: 	clean
-			@-rm $(NAME)
+			@-rm -f $(NAME)
 clean:
-			@-rm $(OBM)
-			@-rm $(OBB)
-			@-rm $(wildcard *.so)
+			@rm -f $(OBM)
+			@rm -f $(OBB)
+			@rm -f $(wildcard *.so)
+			@rm -f a.out
 
 .PHONY: 	all bonus re fclean clean
