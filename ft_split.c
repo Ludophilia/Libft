@@ -6,7 +6,7 @@
 /*   By: jgermany <nyaritakunai@outlook.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 13:08:05 by jgermany          #+#    #+#             */
-/*   Updated: 2022/12/21 16:41:59 by jgermany         ###   ########.fr       */
+/*   Updated: 2022/12/29 14:26:27 by jgermany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,8 @@ char	**ft_split(char const *s, char c)
 	char	*dup;
 	char	*sep;
 
+	if (s == (char *)0)
+		return ((char **)0);
 	dup = ft_strdup(s);
 	sep = ft_memchr(dup, c, ft_strlen(dup));
 	if (sep)

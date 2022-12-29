@@ -6,7 +6,7 @@
 /*   By: jgermany <nyaritakunai@outlook.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 14:06:25 by jgermany          #+#    #+#             */
-/*   Updated: 2022/12/18 15:47:46 by jgermany         ###   ########.fr       */
+/*   Updated: 2022/12/29 14:29:07 by jgermany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	size_t		ls2;
 	size_t		i;
 
+	if (s1 == (char *)0 || s2 == (char *)0)
+		return ((char *)0);
 	ls1 = ft_strlen(s1);
 	ls2 = ft_strlen(s2);
 	dest = ft_calloc(ls1 + ls2 + 1, sizeof(char));
