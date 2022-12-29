@@ -6,7 +6,7 @@
 #    By: jgermany <nyaritakunai@outlook.com>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/30 13:02:44 by jgermany          #+#    #+#              #
-#    Updated: 2022/12/29 00:35:54 by jgermany         ###   ########.fr        #
+#    Updated: 2022/12/29 13:53:14 by jgermany         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,6 +45,7 @@ bonus: 		$(OBB)
 			$(CC) $(CCFL) -I$(INCDIR) -c $< -o $@
 test_%: 	all
 			@$(CC) $(CCFL) -I$(INCDIR) tests/$@.c -l$(LIB) -L$(LIBDIR)
+			@./a.out
 mtest_%:	test_%
 			$(VG) $(VGFL) ./a.out
 
@@ -59,6 +60,6 @@ clean:
 			@rm -f $(OBM)
 			@rm -f $(OBB)
 			@rm -f $(wildcard *.so)
-			@rm -f a.out
+			@rm -f $(wildcard *.out)
 
 .PHONY: 	all bonus re fclean clean
