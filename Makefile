@@ -6,7 +6,7 @@
 #    By: jgermany <nyaritakunai@outlook.com>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/30 13:02:44 by jgermany          #+#    #+#              #
-#    Updated: 2022/12/28 23:41:02 by jgermany         ###   ########.fr        #
+#    Updated: 2022/12/29 13:53:14 by jgermany         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,7 +48,7 @@ test_%: 	all
 			@./a.out
 mtest_%:	test_%
 			$(VG) $(VGFL) ./a.out
-			rm a.out
+
 so:
 			$(CC) $(CCFL) -fPIC -I$(INCDIR) -c $(CM) $(CB)
 			$(CC) $(CCFL) -shared -o libft.so $(OBM) $(OBB)
@@ -60,6 +60,6 @@ clean:
 			@rm -f $(OBM)
 			@rm -f $(OBB)
 			@rm -f $(wildcard *.so)
-			@rm -f a.out
+			@rm -f $(wildcard *.out)
 
 .PHONY: 	all bonus re fclean clean
