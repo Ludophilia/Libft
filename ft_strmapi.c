@@ -6,7 +6,7 @@
 /*   By: jgermany <nyaritakunai@outlook.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 14:55:29 by jgermany          #+#    #+#             */
-/*   Updated: 2022/12/21 17:17:23 by jgermany         ###   ########.fr       */
+/*   Updated: 2022/12/29 14:30:58 by jgermany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	char	*ns;
 	int		i;
 
+	if (s == (char *)0)
+		return ((char *)0);
 	ns = (char *)malloc((ft_strlen(s) + 1) * sizeof(char));
 	if (!ns)
 		return ((char *)0);

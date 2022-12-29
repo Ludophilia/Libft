@@ -6,7 +6,7 @@
 /*   By: jgermany <nyaritakunai@outlook.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 14:59:24 by jgermany          #+#    #+#             */
-/*   Updated: 2022/12/18 19:12:38 by jgermany         ###   ########.fr       */
+/*   Updated: 2022/12/29 14:45:02 by jgermany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 	size_t	start;
 	size_t	end;
 
+	if (s1 == (char *)0 || set == (char *)0)
+		return ((char *)0);
 	start = 0;
 	end = ft_strlen(s1) - 1;
 	while (s1[start])
