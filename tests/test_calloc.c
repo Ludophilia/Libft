@@ -6,14 +6,15 @@
 /*   By: jgermany <nyaritakunai@outlook.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 14:38:42 by jgermany          #+#    #+#             */
-/*   Updated: 2022/12/29 14:02:43 by jgermany         ###   ########.fr       */
+/*   Updated: 2022/12/29 14:07:08 by jgermany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
 #include <assert.h>
-// #include <malloc.h>
+// #include <malloc.h> // for malloc_usable_size
+// #include <float.h>
 
 size_t	check_zeroes(void *ptr, size_t size)
 {
@@ -65,8 +66,6 @@ void	calloc_testcase(char *name, size_t nmemb, size_t size)
 		assert(ft_arr == 0);
 	}
 }
-
-#include <float.h>
 
 int	main(void)
 {
