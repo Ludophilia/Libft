@@ -1,0 +1,91 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    test_split.txt                                     :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: jgermany <nyaritakunai@outlook.com>        +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/12/30 13:39:05 by jgermany          #+#    #+#              #
+#    Updated: 2022/12/30 20:55:50 by jgermany         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+Libft - ft_split 🟢🔴
+
+Evil tests made with 😈😈😈 passion
+
+Context : Create ft_split(char const *str, char c), a function that split a
+string s into multiple strings and store them into an array.
+
+The number of strings in the array depends on the separator Sep, such as if 
+c is equal to ' ', the str "hello world" is splitted into
+["hello", "world"].
+
+Test material
+	- read only string ex : "hello world" or "hello"
+	- separator ex : ' '
+
+Prototype
+	char	**ft_split(char const *s, char c);
+
+A - HAPPY PATH SERIES
+
+[🟢] Happy path :)
+	"salut ça va" ' '
+		-> ["salut", "ça", "va", 0]
+	"Thisxisxaxstr"
+		-> ["This", "is", "a", "str", 0]
+
+B - EMPTINESS SERIES
+
+[🟢] Just space
+	" ", ' '
+		-> [0]
+	"                                  ", ' '
+		-> [0]
+[🟢] Empty str
+	"" 'W'
+		-> [0] (empty arr with just a null)
+	"" '\0'
+		-> [0]
+
+[🟢] No str
+	NULL '\x0'
+		->  NULL ((char **)0)
+	NULL 'L'
+		-> NULL ((char **)0)
+
+[🟢] Null separator '\0'
+	"Nothing should happen" '\x0'
+		-> ["Nothing should happen", 0]
+	"42School is kind of hardcore" '\x0'
+		-> ["42School is kind of hardcore", 0]
+
+C - EXCESS SERIES
+
+[🟢] Sep at the start of str
+	" salut ça va" ' '
+		-> ["salut", "ça", "va", 0]
+	"xThisxisxaxstr" 'x'
+		-> ["This", "is", "a", "str", 0]
+
+[🟢] Sep at the end of str
+	"hello word " " "
+		-> ["hello", "word", 0]
+	"tripouille hommageE" "E"
+		-> ["tripouille hommage", 0]
+
+[🟢] Sep at the start and end of str
+	" hello word " " "
+		-> ["hello", "word", 0]
+	"Etripouille hommageE" "E"
+		-> ["tripouille hommage", 0]
+
+[🟢] Repeated Sep
+	"salutXXXXXXXcaXXvaXXXXXXXXXXXXXX" 'X'
+		-> ["salut", "ca", "va", 0]
+	"                     Aye sir !" ' '
+		-> ["Aye", "sir", "!", 0]
+	"OOOOOOOOOOOOOsplitOOOOOOOOOthisOOOOforOOOOOmeOOO?OOOOOOOO" 'O'
+		-> ["split", "this", "for", "me", "?", 0]
+
