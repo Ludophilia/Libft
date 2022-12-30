@@ -6,7 +6,7 @@
 /*   By: jgermany <nyaritakunai@outlook.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 21:50:13 by jgermany          #+#    #+#             */
-/*   Updated: 2022/12/30 20:55:35 by jgermany         ###   ########.fr       */
+/*   Updated: 2022/12/30 21:03:05 by jgermany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,7 +113,7 @@ int	main(void)
 
 	split_testcase("Null separator (1)", 
 		(char *[]){"Nothing should happen", 0},
-		"Nothing should happen", '\x0');
+		"Nothing should happen", 0);
 	split_testcase("Null separator (2)", 
 		(char *[]){"42School is kind of hardcore", 0}, 
 		"42School is kind of hardcore", '\x0');

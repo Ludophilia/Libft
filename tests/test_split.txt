@@ -6,7 +6,7 @@
 #    By: jgermany <nyaritakunai@outlook.com>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/30 13:39:05 by jgermany          #+#    #+#              #
-#    Updated: 2022/12/30 20:55:50 by jgermany         ###   ########.fr        #
+#    Updated: 2022/12/30 21:03:28 by jgermany         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,7 +56,7 @@ B - EMPTINESS SERIES
 		-> NULL ((char **)0)
 
 [🟢] Null separator '\0'
-	"Nothing should happen" '\x0'
+	"Nothing should happen" 0
 		-> ["Nothing should happen", 0]
 	"42School is kind of hardcore" '\x0'
 		-> ["42School is kind of hardcore", 0]
@@ -88,4 +88,3 @@ C - EXCESS SERIES
 		-> ["Aye", "sir", "!", 0]
 	"OOOOOOOOOOOOOsplitOOOOOOOOOthisOOOOforOOOOOmeOOO?OOOOOOOO" 'O'
 		-> ["split", "this", "for", "me", "?", 0]
-
