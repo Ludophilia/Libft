@@ -6,7 +6,7 @@
 /*   By: jgermany <nyaritakunai@outlook.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 16:36:16 by jgermany          #+#    #+#             */
-/*   Updated: 2022/12/28 23:39:33 by jgermany         ###   ########.fr       */
+/*   Updated: 2023/01/01 20:36:55 by jgermany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,8 @@
 void	*ft_calloc(size_t nmemb, size_t size)
 {
 	void		*arr;
-	long double	total;
-	long double	max;
 
-	total = ((long double)nmemb * (long double)size);
-	max = SIZE_MAX;
-	if (total >= max)
+	if ((size != 0) && (nmemb != ((nmemb * size) / size)))
 		return ((void *)0);
 	arr = malloc(nmemb * size);
 	if (arr)

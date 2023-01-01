@@ -6,7 +6,7 @@
 /*   By: jgermany <nyaritakunai@outlook.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 14:38:42 by jgermany          #+#    #+#             */
-/*   Updated: 2022/12/30 14:09:00 by jgermany         ###   ########.fr       */
+/*   Updated: 2023/01/01 20:36:15 by jgermany         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #include <stdio.h>
 #include <assert.h>
 // #include <malloc.h> // for malloc_usable_size
-// #include <float.h>
 
 static size_t	check_zeroes(void *ptr, size_t size)
 {
@@ -45,15 +44,6 @@ static void	calloc_testcase(char *name, size_t nmemb, size_t size)
 		printf("\t\t%i. - check_zeroes(ft_arr, %lu) -> %lu\n",
 			t++, nmemb * size, check_zeroes(ft_arr, nmemb * size));
 		assert(check_zeroes(ft_arr, nmemb * size) == nmemb * size);
-		if (nmemb * size)
-		{
-			printf("\t\t%i. - [*arr == 0] -> '%s'(%i)\n", 
-			t++, res[*arr == 0], *arr);
-			assert(*arr == 0);
-			printf("\t\t%i. - [*ft_arr == 0] -> '%s'(%i)\n",
-				t++, res[*ft_arr == 0], *ft_arr);
-			assert(*ft_arr == 0);
-		}
 		free(arr); free(ft_arr);
 	}
 	else
