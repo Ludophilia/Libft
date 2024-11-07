@@ -6,7 +6,7 @@
 #    By: jegerman <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/06 12:44:08 by jegerman          #+#    #+#              #
-#    Updated: 2024/11/06 17:01:46 by jegerman         ###   ########.fr        #
+#    Updated: 2024/11/07 10:55:22 by jegerman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ AR := ar
 ARFLAGS := rcs
 
 SRCS := ft_isalpha.c
+SRCS += ft_isdigit.c
 
 OBJS := $(SRCS:.c=.o)
 
