@@ -6,7 +6,7 @@
 #    By: jegerman <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/06 12:44:08 by jegerman          #+#    #+#              #
-#    Updated: 2024/11/07 12:52:09 by jegerman         ###   ########.fr        #
+#    Updated: 2024/11/07 15:26:11 by jegerman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,7 @@ SRCS += ft_isprint.c
 
 SRCS += ft_strlen.c
 SRCS += ft_memset.c
+SRCS += ft_bzero.c
 
 OBJS := $(SRCS:.c=.o)
 
