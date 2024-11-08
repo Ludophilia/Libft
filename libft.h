@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 16:49:27 by jegerman          #+#    #+#             */
-/*   Updated: 2024/11/07 16:13:36 by jegerman         ###   ########.fr       */
+/*   Updated: 2024/11/08 14:55:34 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 # define LIBFT_H
 
 # include <stddef.h>
+
+typedef void*	(*t_mover)(void *, void *, size_t);
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
@@ -26,5 +28,6 @@ size_t	ft_strlen(char *s);
 void	*ft_memset(void *s, int c, size_t n);
 void	ft_bzero(void *s, size_t n);
 void	*ft_memcpy(void *dest, void *src, size_t n);
+void	*ft_memmove(void *dest, void *src, size_t n);
 
 #endif
