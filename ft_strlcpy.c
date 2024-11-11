@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/08 14:02:22 by jegerman          #+#    #+#             */
-/*   Updated: 2024/11/11 14:59:44 by jegerman         ###   ########.fr       */
+/*   Created: 2024/11/11 15:00:14 by jegerman          #+#    #+#             */
+/*   Updated: 2024/11/11 16:29:54 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-static void	*ft_rev_memcpy(void *dest, const void *src, size_t n)
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
-	if (n == 0)
-		return (dest);
-	while (--n + dest >= dest)
-		((char *)dest)[n] = ((char *)src)[n];
-	return (dest);
-}
+	size_t	i;
+	size_t	srclen;
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
-{
-	t_mover	*movers;
-	void	*ret_dest;
-
-	movers = (t_mover[2]){ft_memcpy, ft_rev_memcpy};
-	ret_dest = (movers[dest >= src])(dest, src, n);
-	return (ret_dest);
+	srclen = ft_strlen(src);
+	if (size == 0)
+		return (srclen);
+	i = 0;
+	while (i < size - 1)
+	{
+		dst[i] = src[i];
+		++i;
+	}
+	dst[i] = '\0';
+	return (srclen);
 }
