@@ -1,6 +1,6 @@
 #! /bin/bash
 
-NAME='x10'
+NAME='x11'
 
 CC='cc'
 CFLAGS='-Wall -Wextra -Werror'

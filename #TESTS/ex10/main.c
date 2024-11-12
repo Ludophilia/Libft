@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 17:16:08 by jegerman          #+#    #+#             */
-/*   Updated: 2024/11/11 16:42:15 by jegerman         ###   ########.fr       */
+/*   Updated: 2024/11/12 11:18:09 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ static void	hdn_test_strlcpy(char *src, size_t size)
 	char	dest1[50];
 	size_t	ret[2];
 
+	*dest0 = 0;
+	*dest1 = 0;
 	ret[0] = strlcpy(dest0, src, size);
 	ret[1] = ft_strlcpy(dest1, src, size);
 	assert(strlen(src) == ret[0]);
