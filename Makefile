@@ -6,7 +6,7 @@
 #    By: jegerman <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/06 12:44:08 by jegerman          #+#    #+#              #
-#    Updated: 2024/11/12 14:16:14 by jegerman         ###   ########.fr        #
+#    Updated: 2024/11/12 15:17:36 by jegerman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,6 +35,7 @@ SRCS += ft_strlcat.c
 
 SRCS += ft_toupper.c
 SRCS += ft_tolower.c
+SRCS += ft_strchr.c
 
 OBJS := $(SRCS:.c=.o)
 
