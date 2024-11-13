@@ -6,46 +6,37 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 17:16:08 by jegerman          #+#    #+#             */
-/*   Updated: 2024/11/12 16:05:12 by jegerman         ###   ########.fr       */
+/*   Updated: 2024/11/13 11:47:01 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 #include <assert.h>
 #include <stdio.h>
+#include <stdint.h>
 #include "libft.h"
 
-static int	ft_strcmp(char *s1, char *s2)
+static void	hdn_test_memchr(const void *s, int c, size_t n)
 {
-	while (*s1 != '\0' && *s1 == *s2)
-	{
-		++s1;
-		++s2;
-	}
-	return (*s1 - *s2);
-}
+	void	*ret[2];
 
-static void	hdn_test_strchr(const char *s, int c, char *expect)
-{
-	char	*ret[2];
-
-	ret[0] = strchr(s, c);
-	ret[1] = ft_strchr(s, c);
-	printf("[1] strchr('%s', '%c') -> '%s'\n", s, c, ret[0]);
-	printf("[1] ft_strchr('%s', '%c') -> '%s'\n", s, c, ret[1]);
-	assert(ft_strcmp(ret[0], expect) == 0 && ft_strcmp(ret[1], expect) == 0);
+	ret[0] = memchr(s, c, n);
+	ret[1] = ft_memchr(s, c, n);
+	printf("[1] memchr('%s', '%c', %lu) -> %p\n", (char *)s, c, n, ret[0]);
+	printf("[1] ft_memchr('%s', '%c', %lu) -> %p\n", (char *)s, c, n, ret[1]);
+	assert(ret[0] == ret[1]);
 	printf("[OK]\n");
 }
 
 int	main(void)
 {
-	hdn_test_strchr("", 0, "");
-	hdn_test_strchr(";", 0, "");
-	hdn_test_strchr("00112233445566778899", 0, "");
-	hdn_test_strchr("aaabbbc", 'c', "c");
-	hdn_test_strchr("aaabbbc", 'a', "aaabbbc");
-	hdn_test_strchr("aaabbbc", 'b', "bbbc");
-	hdn_test_strchr("00112233445566778899", '0', "00112233445566778899");
-	hdn_test_strchr("00112233445566778899", '5', "5566778899");
-	hdn_test_strchr("00112233445566778899", '8', "8899");
+	hdn_test_memchr("", 0, 0);
+	hdn_test_memchr("", 0, 1);
+	hdn_test_memchr("0123456789", 0, 0);
+	hdn_test_memchr("0123456789", 0, 10);
+	hdn_test_memchr("0123456789", 0, 11);
+	hdn_test_memchr("0123456789", '0', 1);
+	hdn_test_memchr("0123456789", '1', 2);
+	hdn_test_memchr("0123456789", '2', 11);
+	hdn_test_memchr("0123456222", '2', 11);
 }
