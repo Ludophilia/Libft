@@ -15,6 +15,7 @@ if [ $# -eq 1 ] && [ $1 = '-s' ]; then
 fi
 
 SRCS='main.c'
+SRCS+=' helpers.c'
 
 if [ $# -eq 0 ] || ([ $# -eq 1 ] && [ $1 = 'all' ]); then
 	make $MKFLAGS all

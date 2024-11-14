@@ -6,19 +6,20 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 16:46:45 by jegerman          #+#    #+#             */
-/*   Updated: 2024/11/13 17:42:37 by jegerman         ###   ########.fr       */
+/*   Updated: 2024/11/14 14:52:10 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
-// #include <limits.h>
-// printf("%lu\n", ULONG_MAX);
-// 18 446 744 073 709 551 615
-void *ft_calloc(size_t nmemb, size_t size)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-	// void *malloc(size_t size);
+	void	*buffer;
 
-	// test it returns a value or not if expected, see original calloc
-	// test it's all zeroes
+	if (size > 0 && (nmemb != (nmemb * size) / size))
+		return (NULL);
+	buffer = malloc(nmemb * size);
+	if (buffer)
+		ft_bzero(buffer, nmemb * size);
+	return (buffer);
 }
