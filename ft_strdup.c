@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 15:23:16 by jegerman          #+#    #+#             */
-/*   Updated: 2024/11/14 16:01:13 by jegerman         ###   ########.fr       */
+/*   Updated: 2024/11/14 17:51:13 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strdup(const char *s)
 	char	*dupl;
 
 	size = ft_strlen(s);
-	dupl = malloc(size + 1);
+	dupl = malloc((size + 1) * sizeof(char));
 	if (dupl == NULL)
 		return (NULL);
 	dupl = ft_memcpy(dupl, s, size + 1);
