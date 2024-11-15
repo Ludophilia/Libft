@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 16:49:27 by jegerman          #+#    #+#             */
-/*   Updated: 2024/11/14 15:25:59 by jegerman         ###   ########.fr       */
+/*   Updated: 2024/11/15 13:24:16 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,8 @@ int		ft_atoi(const char *nptr);
 
 void	*ft_calloc(size_t nmemb, size_t size);
 char	*ft_strdup(const char *s);
+
+// (15/11 - 13:21) - Remaining: 7/7
+char	*ft_substr(char const *s, unsigned int start, size_t len);
 
 #endif

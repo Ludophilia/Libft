@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 16:10:18 by jegerman          #+#    #+#             */
-/*   Updated: 2024/11/14 17:59:16 by jegerman         ###   ########.fr       */
+/*   Updated: 2024/11/15 13:22:44 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,9 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	max_sublen = slen - start;
 	if (len < max_sublen)
 		max_sublen = len;
-	sub = malloc((max_sublen + 1) * sizeof(char));
+	sub = ft_calloc(max_sublen + 1, sizeof(char));
 	if (sub == NULL)
 		return (NULL);
-	sub[max_sublen] = '\0';
 	i = 0;
 	while (i < max_sublen)
 	{
