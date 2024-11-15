@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 16:49:27 by jegerman          #+#    #+#             */
-/*   Updated: 2024/11/15 14:04:24 by jegerman         ###   ########.fr       */
+/*   Updated: 2024/11/15 18:01:53 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 
 # include <stddef.h>
 # include <stdlib.h>
+# include <sys/types.h>
 
 typedef void*	(*t_mover)(void *, const void *, size_t);
 
@@ -50,7 +51,8 @@ void	*ft_calloc(size_t nmemb, size_t size);
 char	*ft_strdup(const char *s);
 
 char	*ft_substr(char const *s, unsigned int start, size_t len);
-// (15/11 - 13:46) - Remaining: 6/7
 char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strtrim(char const *s1, char const *set);
+// (15/11 - 18:01) - Remaining: 4/7
 
 #endif
