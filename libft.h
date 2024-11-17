@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 16:49:27 by jegerman          #+#    #+#             */
-/*   Updated: 2024/11/15 19:53:41 by jegerman         ###   ########.fr       */
+/*   Updated: 2024/11/17 18:20:50 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,9 @@ char	*ft_strdup(const char *s);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strtrim(char const *s1, char const *set);
-// (15/11 - 18:01) - Remaining: 4/7
 char	**ft_split(char const *s, char c);
+
+char	*ft_itoa(int n);
+// (17/11 - 18:30) - Remaining: 2/7
 
 #endif
