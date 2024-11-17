@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 17:16:08 by jegerman          #+#    #+#             */
-/*   Updated: 2024/11/17 16:19:26 by jegerman         ###   ########.fr       */
+/*   Updated: 2024/11/17 17:13:19 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,8 @@ static void	hdn_print_split(char const *s, char const c, char **strs)
 	int	i;
 
 	printf("[1] ft_split(\"%s\", '%c') -> ", s, c);
-	if (*strs == NULL && printf("[%s]\n", *strs))
+	if ((strs == NULL && printf("(null)\n"))
+		|| (*strs == NULL && printf("[%s]\n", *strs)))
 		return ;
 	i = -1;
 	while (strs[++i])
@@ -48,7 +49,7 @@ static void	hdn_print_split(char const *s, char const c, char **strs)
 			return ;
 		if (i == 0)
 			printf("[%s, ", strs[i]);
-		else if (strs[i + i] == 0)
+		else if (strs[i + 1] == 0)
 			printf("%s]\n", strs[i]);
 		else
 			printf("%s, ", strs[i]);
@@ -73,6 +74,7 @@ static void	hdn_test_split(char const *s, char const c,
 
 int	main(void)
 {
+	hdn_test_split(NULL, 0, NULL);
 	hdn_test_split("", 0, (char *[]){0});
 	hdn_test_split("abc", 0, (char *[]){"abc", 0});
 	hdn_test_split("a b c", ' ', (char *[]){"a", "b", "c", 0});
