@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 18:30:31 by jegerman          #+#    #+#             */
-/*   Updated: 2024/11/15 19:52:08 by jegerman         ###   ########.fr       */
+/*   Updated: 2024/11/17 16:04:47 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static char	*hdn_create_word(const char *s, char c, int *i, char **strs)
 	if (word == NULL)
 		return (NULL);
 	j = -1;
-	while (++j < word)
+	while (++j < size)
 		word[j] = s[j];
 	*i += size;
 	*strs = word; 
@@ -65,6 +65,8 @@ char	**ft_split(char const *s, char c)
 	int		i;
 	int		j;
 
+	if (s == NULL)
+		return (NULL);
 	words = hdn_get_nb_of_words(s, c);
 	strs = ft_calloc(words + 1, sizeof(char *));
 	if (strs == NULL)
