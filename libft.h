@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 16:49:27 by jegerman          #+#    #+#             */
-/*   Updated: 2024/11/17 18:20:50 by jegerman         ###   ########.fr       */
+/*   Updated: 2024/11/18 15:40:04 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,6 @@ char	*ft_strtrim(char const *s1, char const *set);
 char	**ft_split(char const *s, char c);
 
 char	*ft_itoa(int n);
-// (17/11 - 18:30) - Remaining: 2/7
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 
 #endif
