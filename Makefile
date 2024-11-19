@@ -6,7 +6,7 @@
 #    By: jegerman <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/06 12:44:08 by jegerman          #+#    #+#              #
-#    Updated: 2024/11/19 13:21:00 by jegerman         ###   ########.fr        #
+#    Updated: 2024/11/19 13:36:08 by jegerman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -65,7 +65,7 @@ SRCS += ft_putnbr_fd.c
 OBJS := $(SRCS:.c=.o)
 
 SRCS_B := ft_lstnew_bonus.c
-# SRCS_B += ft_isalpha.c
+SRCS_B += ft_lstadd_front_bonus.c
 
 OBJS_B := $(SRCS_B:.c=.o)
 
