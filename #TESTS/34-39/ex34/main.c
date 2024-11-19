@@ -6,43 +6,35 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 17:16:08 by jegerman          #+#    #+#             */
-/*   Updated: 2024/11/18 19:46:32 by jegerman         ###   ########.fr       */
+/*   Updated: 2024/11/19 13:20:18 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <assert.h>
 #include <stdio.h>
 #include "libft.h"
-#include <fcntl.h>
-#include <unistd.h>
 
-static void	hdn_test_putchar(char c)
+static void	hdn_test_lstnew(int nb)
 {
-	int		fd;
-	char	buffer;
+	t_list	*node;
+	int		*content;
 
-	buffer = '4';
-	assert(buffer != c);
-	fd = open("test30", O_CREAT | O_TRUNC | O_RDWR);
-	if (fd == -1 && dprintf(2, "Failed to create file.\n"))
-		return ;
-	printf("ft_putchar_fd('%c', %i)\n", c, fd);
-	ft_putchar_fd(c, fd);
-	if (lseek(fd, 0, SEEK_SET) == -1 || (read(fd, &buffer, 1) == -1
-			&& dprintf(2, "Failed to read file.\n")))
-	{
-		close(fd);
-		unlink("test30");
-		return ;
-	}
-	printf("buffer -> %c\n", buffer);
-	assert(buffer == c);
-	close(fd);
-	unlink("test30");
+	content = malloc(sizeof(int));
+	assert(content != NULL);
+	*content = nb;
+	printf("ft_lstnew_fd(%p)\n", content);
+	node = ft_lstnew(content);
+	assert(node != NULL);
+	printf("node->content -> %i\n", *(int *)node->content);
+	assert (*(int *)node->content == nb);
+	printf("node->next -> %p\n", node->next);
+	assert(node->next == NULL);
+	free(content);
+	free(node);
 	printf("[OK]\n");
 }
 
 int	main(void)
 {
-	hdn_test_putchar('X');
+	hdn_test_lstnew(42);
 }

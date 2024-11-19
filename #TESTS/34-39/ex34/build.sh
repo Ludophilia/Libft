@@ -1,6 +1,6 @@
 #! /bin/bash
 
-NAME='x33'
+NAME='x34'
 
 CC='cc'
 CFLAGS='-Wall -Wextra -Werror'
@@ -17,7 +17,7 @@ fi
 SRCS='main.c'
 
 if [ $# -eq 0 ] || ([ $# -eq 1 ] && [ $1 = 'all' ]); then
-	make $MKFLAGS all
+	make $MKFLAGS bonus
 	$CC $CFLAGS -I$FT_DIR -o $NAME $SRCS -lft -L$FT_DIR -lbsd
 elif ([ $# -eq 1 ] && [ $1 = 'fclean' ]); then
 	make -C $FT_DIR fclean

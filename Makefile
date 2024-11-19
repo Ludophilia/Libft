@@ -6,7 +6,7 @@
 #    By: jegerman <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/06 12:44:08 by jegerman          #+#    #+#              #
-#    Updated: 2024/11/19 10:58:37 by jegerman         ###   ########.fr        #
+#    Updated: 2024/11/19 13:21:00 by jegerman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,13 +64,21 @@ SRCS += ft_putnbr_fd.c
 
 OBJS := $(SRCS:.c=.o)
 
+SRCS_B := ft_lstnew_bonus.c
+# SRCS_B += ft_isalpha.c
+
+OBJS_B := $(SRCS_B:.c=.o)
+
 all: $(NAME)
 
 $(NAME): $(OBJS)
 	$(AR) $(ARFLAGS) $@ $^
 
+bonus: $(OBJS_B)
+	$(AR) $(ARFLAGS) $(NAME) $^
+
 clean:
-	rm -f $(OBJS)
+	rm -f $(OBJS) $(OBJS_B)
 
 fclean: clean
 	rm -f $(NAME)
