@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 18:30:31 by jegerman          #+#    #+#             */
-/*   Updated: 2024/11/17 16:04:47 by jegerman         ###   ########.fr       */
+/*   Updated: 2024/11/19 14:52:39 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static char	*hdn_create_word(const char *s, char c, int *i, char **strs)
 	while (++j < size)
 		word[j] = s[j];
 	*i += size;
-	*strs = word; 
+	*strs = word;
 	return (word);
 }
 
