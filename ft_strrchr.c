@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 14:45:52 by jegerman          #+#    #+#             */
-/*   Updated: 2024/11/12 16:11:52 by jegerman         ###   ########.fr       */
+/*   Updated: 2024/11/20 17:06:42 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_strrchr(const char *s, int c)
 	i = 0;
 	while (i < len + 1)
 	{
-		if (s[len - i] == c)
+		if (s[len - i] == (char)c)
 			return ((char *)s + len - i);
 		++i;
 	}
