@@ -6,13 +6,15 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 17:16:08 by jegerman          #+#    #+#             */
-/*   Updated: 2024/11/20 16:44:58 by jegerman         ###   ########.fr       */
+/*   Updated: 2024/11/20 17:26:23 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <assert.h>
 #include <stdio.h>
 #include "libft.h"
+
+void	hdn_print_nodes(t_list *node);
 
 static void	hdn_check_nodes(t_list *node, int difference_mode, int nb)
 {
@@ -31,7 +33,6 @@ static void	hdn_test_lstmap(int size, int max)
 	t_list	*old_list;
 	t_list	*new_list;
 	void	*hdn_set_content_to_minus_one(void *);
-	void	hdn_print_nodes(t_list *);
 	void	hdn_init_nodes(int, int, t_list **);
 
 	old_list = NULL;
