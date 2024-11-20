@@ -6,7 +6,7 @@
 #    By: jegerman <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/06 12:44:08 by jegerman          #+#    #+#              #
-#    Updated: 2024/11/20 15:15:23 by jegerman         ###   ########.fr        #
+#    Updated: 2024/11/20 15:34:02 by jegerman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -71,6 +71,7 @@ SRCS_B += ft_lstlast_bonus.c
 SRCS_B += ft_lstadd_back_bonus.c
 SRCS_B += ft_lstdelone_bonus.c
 SRCS_B += ft_lstclear_bonus.c
+SRCS_B += ft_lstiter_bonus.c
 
 OBJS_B := $(SRCS_B:.c=.o)
 

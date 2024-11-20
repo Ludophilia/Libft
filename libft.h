@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 16:49:27 by jegerman          #+#    #+#             */
-/*   Updated: 2024/11/20 15:15:12 by jegerman         ###   ########.fr       */
+/*   Updated: 2024/11/20 15:34:12 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,5 +84,7 @@ void	ft_lstadd_back(t_list **lst, t_list *new);
 
 void	ft_lstdelone(t_list *lst, void (*del)(void *));
 void	ft_lstclear(t_list **lst, void (*del)(void *));
+
+void	ft_lstiter(t_list *lst, void (*f)(void *));
 
 #endif
