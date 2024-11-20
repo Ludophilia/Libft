@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 15:00:14 by jegerman          #+#    #+#             */
-/*   Updated: 2024/11/11 16:29:54 by jegerman         ###   ########.fr       */
+/*   Updated: 2024/11/20 17:16:19 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	if (size == 0)
 		return (srclen);
 	i = 0;
-	while (i < size - 1)
+	while (i < size - 1 && src[i])
 	{
 		dst[i] = src[i];
 		++i;
