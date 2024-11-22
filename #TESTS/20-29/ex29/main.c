@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 17:16:08 by jegerman          #+#    #+#             */
-/*   Updated: 2024/11/18 17:26:49 by jegerman         ###   ########.fr       */
+/*   Updated: 2024/11/22 19:01:34 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,13 @@ static void	hdn_capitalize_even_characters(unsigned int i, char *c)
 static void	hdn_test_strmapi(char *s, void (*f)(unsigned int, char *),
 	char *expc)
 {
-	printf("ft_striteri(\"%s\", %p) -> ", s, f);
+	// printf("ft_striteri(\"%s\", %p) -> ", s, f);
 	ft_striteri(s, f);
-	printf("\"%s\"\n", s);
+	// printf("\"%s\"\n", s);
 	if (s == NULL)
 		assert(expc == NULL);
 	else
 		assert(ft_memcmp(s, expc, ft_strlen(s) + 1) == 0);
-	printf("[OK]\n");
 }
 
 int	main(void)
@@ -43,4 +42,5 @@ int	main(void)
 		hdn_capitalize_even_characters, "SaLuT");
 	hdn_test_strmapi((char []){'s', 'a', '\x01', '\000', 'l', 'u', 't', '\0'},
 		hdn_capitalize_even_characters, "Sa\x01");
+	printf("[OK] striteri\n");
 }

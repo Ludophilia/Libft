@@ -18,9 +18,9 @@ SRCS='main.c'
 SRCS+=' main_utils.c'
 
 if [ $# -eq 0 ] || ([ $# -eq 1 ] && [ $1 = 'all' ]); then
-	make $MKFLAGS bonus
+	make -s $MKFLAGS bonus
 	$CC $CFLAGS -I$FT_DIR -o $NAME $SRCS -lft -L$FT_DIR -lbsd
 elif ([ $# -eq 1 ] && [ $1 = 'fclean' ]); then
-	make -C $FT_DIR fclean
+	make -s -C $FT_DIR fclean
 	rm -rf $NAME
 fi

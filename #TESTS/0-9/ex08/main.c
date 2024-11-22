@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 17:16:08 by jegerman          #+#    #+#             */
-/*   Updated: 2024/11/08 13:31:10 by jegerman         ###   ########.fr       */
+/*   Updated: 2024/11/22 17:56:14 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,14 @@
 static void	hdn_test_ty01(int reference, size_t size, int expected_res)
 {
 	void	*ret[2];
+	int		clone;
 
-	ret[0] = memcpy(&reference, &reference, size);
-	assert(expected_res == reference);
-	ret[1] = ft_memcpy(&reference, &reference, size);
-	assert(ret[0] == &reference && ret[1] == &reference);
-	assert(expected_res == reference);
+	clone = reference;
+	ret[0] = memcpy(&clone, &reference, size);
+	assert(expected_res == clone);
+	ret[1] = ft_memcpy(&clone, &reference, size);
+	assert(ret[0] == &clone && ret[1] == &clone);
+	assert(expected_res == clone);
 }
 
 static void	hdn_test_ty00(int reference, size_t size, int expected_res)
@@ -46,4 +48,5 @@ int	main(void)
 	hdn_test_ty01(0x1234567F, 0, 0x1234567F);
 	hdn_test_ty01(0x1234567F, 2, 0x1234567F);
 	hdn_test_ty01(0x1234567F, 4, 0x1234567F);
+	printf("[OK] memcpy\n");
 }

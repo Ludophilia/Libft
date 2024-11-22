@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 17:16:08 by jegerman          #+#    #+#             */
-/*   Updated: 2024/11/12 17:07:10 by jegerman         ###   ########.fr       */
+/*   Updated: 2024/11/22 18:14:25 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,9 @@ static void	hdn_test_strncmp(const char *s1, const char *s2, size_t n,
 
 	ret[0] = strncmp(s1, s2, n);
 	ret[1] = ft_strncmp(s1, s2, n);
-	printf("[1] strncmp('%s', '%s', '%lu') -> '%i'\n", s1, s2, n, ret[0]);
-	printf("[1] ft_strncmp('%s', '%s', '%lu') -> '%i'\n", s1, s2, n, ret[1]);
+	// printf("[1] strncmp('%s', '%s', '%lu') -> '%i'\n", s1, s2, n, ret[0]);
+	// printf("[1] ft_strncmp('%s', '%s', '%lu') -> '%i'\n", s1, s2, n, ret[1]);
 	assert(ret[0] == expect && ret[1] == expect);
-	printf("[OK]\n");
 }
 
 int	main(void)
@@ -40,4 +39,5 @@ int	main(void)
 	hdn_test_strncmp("aab", "aac", 2, 0);
 	hdn_test_strncmp("aab", "aac", 3, -1);
 	hdn_test_strncmp("aab", "aac", 420, -1);
+	printf("[OK] strncmp\n");
 }

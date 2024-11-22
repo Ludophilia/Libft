@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 17:16:08 by jegerman          #+#    #+#             */
-/*   Updated: 2024/11/19 15:51:29 by jegerman         ###   ########.fr       */
+/*   Updated: 2024/11/22 19:15:11 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,17 +50,15 @@ static void	hdn_test_lstsize(int expect, int test_for_null)
 	if (test_for_null)
 	{
 		size = ft_lstsize(NULL);
-		printf("ft_lstsize(%p) -> %i\n", NULL, size);
+		// printf("ft_lstsize(%p) -> %i\n", NULL, size);
 		assert(size == expect);
-		printf("[OK]\n");
 		return ;
 	}
 	start = hdn_init_nodes(expect);
 	size = ft_lstsize(start);
-	printf("ft_lstsize(%p) -> %i\n", start, size);
+	// printf("ft_lstsize(%p) -> %i\n", start, size);
 	assert(size == expect);
 	hdn_free_list(start);
-	printf("[OK]\n");
 }
 
 int	main(void)
@@ -70,4 +68,5 @@ int	main(void)
 	hdn_test_lstsize(2, 0);
 	hdn_test_lstsize(3, 0);
 	hdn_test_lstsize(10, 0);
+	printf("[OK] lstsize\n");
 }

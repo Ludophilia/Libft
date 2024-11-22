@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 17:16:08 by jegerman          #+#    #+#             */
-/*   Updated: 2024/11/20 15:17:21 by jegerman         ###   ########.fr       */
+/*   Updated: 2024/11/22 19:26:46 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,40 +30,40 @@ void	hdn_init_nodes(int size, int max, t_list **node)
 	}
 }
 
-void	hdn_print_nodes(t_list *node)
-{
-	t_list	*first;
+// void	hdn_print_nodes(t_list *node)
+// {
+// 	t_list	*first;
 
-	if (node->next == NULL && printf("[%i]\n", *(int *)node->content))
-		return ;
-	first = node;
-	while (node)
-	{
-		if (node == first)
-			printf("[%i ", *(int *)node->content);
-		else if (node->next == NULL)
-			printf("%i]\n", *(int *)node->content);
-		else
-			printf("%i ", *(int *)node->content);
-		node = node->next;
-	}
-}
+// 	if (node->next == NULL && printf("[%i]\n", *(int *)node->content))
+// 		return ;
+// 	first = node;
+// 	while (node)
+// 	{
+// 		if (node == first)
+// 			printf("[%i ", *(int *)node->content);
+// 		else if (node->next == NULL)
+// 			printf("%i]\n", *(int *)node->content);
+// 		else
+// 			printf("%i ", *(int *)node->content);
+// 		node = node->next;
+// 	}
+// }
 
-static void	hdn_test_lstdelone(int size, int max)
+static void	hdn_test_lstclear(int size, int max)
 {
 	t_list	*node;
 
 	node = NULL;
 	hdn_init_nodes(size, max, &node);
-	hdn_print_nodes(node);
+	// hdn_print_nodes(node);
 	ft_lstclear(NULL, free);
-	hdn_print_nodes(node);
+	// hdn_print_nodes(node);
 	ft_lstclear(&node, free);
 	assert(node == NULL);
-	printf("[OK]\n");
 }
 
 int	main(void)
 {
-	hdn_test_lstdelone(5, 10);
+	hdn_test_lstclear(5, 10);
+	printf("[OK] lstclear\n");
 }

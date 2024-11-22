@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 17:16:08 by jegerman          #+#    #+#             */
-/*   Updated: 2024/11/19 16:53:04 by jegerman         ###   ########.fr       */
+/*   Updated: 2024/11/22 19:16:29 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,20 +55,20 @@ static void	hdn_test_lstlast(int nb[2], int test_for_null)
 	if (test_for_null)
 	{
 		last = ft_lstlast(NULL);
-		printf("ft_lstlast(%p) -> %p\n", NULL, last);
-		printf("[OK]\n");
+		// printf("ft_lstlast(%p) -> %p\n", NULL, last);
+		// printf("[OK]\n");
 		return ;
 	}
 	node = hdn_init_nodes(nb);
 	last = ft_lstlast(node);
-	printf("ft_lstlast(%p) -> %p\n", node, last);
+	// printf("ft_lstlast(%p) -> %p\n", node, last);
 	assert(*(int *)last->content == nb[1] && last->next == NULL);
 	hdn_free_list(node);
-	printf("[OK]\n");
 }
 
 int	main(void)
 {
 	hdn_test_lstlast(NULL, 1);
 	hdn_test_lstlast((int []){0, 42}, 0);
+	printf("[OK] lstlast\n");
 }

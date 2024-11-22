@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 17:16:08 by jegerman          #+#    #+#             */
-/*   Updated: 2024/11/17 17:13:19 by jegerman         ###   ########.fr       */
+/*   Updated: 2024/11/22 18:58:49 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,14 +62,14 @@ static void	hdn_test_split(char const *s, char const c,
 	char	**strs;
 
 	strs = ft_split(s, c);
-	hdn_print_split(s, c, strs);
+	// hdn_print_split(s, c, strs);
+	(void)hdn_print_split;
 	if (strs == NULL)
 		assert(strs == expc);
 	else
 		hdn_check_assertion(strs, expc);
 	if (strs)
 		hdn_free_strs(strs);
-	printf("[OK]\n");
 }
 
 int	main(void)
@@ -91,4 +91,5 @@ int	main(void)
 		(char *[]){"e", "a", "b", "c", "d", 0});
 	hdn_test_split("xxexxxxaxxbxxcxxxxxdxx", 'x',
 		(char *[]){"e", "a", "b", "c", "d", 0});
+	printf("[OK] split\n");
 }

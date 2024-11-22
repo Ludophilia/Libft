@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 17:16:08 by jegerman          #+#    #+#             */
-/*   Updated: 2024/11/20 17:26:23 by jegerman         ###   ########.fr       */
+/*   Updated: 2024/11/22 19:29:39 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,21 +37,21 @@ static void	hdn_test_lstmap(int size, int max)
 
 	old_list = NULL;
 	hdn_init_nodes(size, max, &old_list);
-	hdn_print_nodes(old_list);
+	// hdn_print_nodes(old_list);
 	assert(ft_lstmap(NULL, hdn_set_content_to_minus_one, free) == NULL);
 	hdn_check_nodes(old_list, 1, -1);
-	hdn_print_nodes(old_list);
+	// hdn_print_nodes(old_list);
 	new_list = ft_lstmap(old_list, hdn_set_content_to_minus_one, free);
 	assert(new_list != NULL);
 	hdn_check_nodes(new_list, 0, -1);
-	hdn_print_nodes(new_list);
+	// hdn_print_nodes(new_list);
 	assert(new_list != old_list);
 	ft_lstclear(&old_list, NULL);
 	ft_lstclear(&new_list, free);
-	printf("[OK]\n");
 }
 
 int	main(void)
 {
 	hdn_test_lstmap(5, 10);
+	printf("[OK] lstmap\n");
 }

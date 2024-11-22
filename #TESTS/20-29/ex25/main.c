@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 17:16:08 by jegerman          #+#    #+#             */
-/*   Updated: 2024/11/15 18:01:32 by jegerman         ###   ########.fr       */
+/*   Updated: 2024/11/22 18:55:34 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,13 @@ static void	hdn_test_strtrim(char const *s1, char const *set,
 	char	*ret;
 
 	ret = ft_strtrim(s1, set);
-	printf("[1] ft_strtrim(\"%s\", \"%s\") -> \"%s\"\n", s1, set, ret);
+	// printf("[1] ft_strtrim(\"%s\", \"%s\") -> \"%s\"\n", s1, set, ret);
 	if (ret == NULL)
 		assert(ret == expectation);
 	else
 		assert(ft_memcmp(ret, expectation, ft_strlen(expectation) + 1) == 0);
 	if (ret)
 		free(ret);
-	printf("[OK]\n");
 }
 
 int	main(void)
@@ -45,4 +44,5 @@ int	main(void)
 	hdn_test_strtrim("01", "", "01");
 	hdn_test_strtrim("0123456789", "012356789", "4");
 	hdn_test_strtrim("0123456789", "01235678", "456789");
+	printf("[OK] strtrim\n");
 }

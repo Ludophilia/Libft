@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 17:16:08 by jegerman          #+#    #+#             */
-/*   Updated: 2024/11/07 11:57:03 by jegerman         ###   ########.fr       */
+/*   Updated: 2024/11/22 17:45:10 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ static void	hdn_test_and_cmp(int c)
 
 	ret[0] = isprint(c);
 	ret[1] = ft_isprint(c);
-	printf("isprint('%i') -> %i\n", c, ret[0]);
-	printf("ft_isprint('%i') -> %i \n", c, ret[1]);
+	// printf("isprint('%i') -> %i\n", c, ret[0]);
+	// printf("ft_isprint('%i') -> %i \n", c, ret[1]);
 	assert(ret[0] == ret[1]);
 }
 
@@ -36,4 +36,5 @@ int	main(void)
 	while (str[++i])
 		hdn_test_and_cmp(str[i]);
 	hdn_test_and_cmp(str[i]);
+	printf("[OK] isprint\n");
 }

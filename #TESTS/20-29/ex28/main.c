@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 17:16:08 by jegerman          #+#    #+#             */
-/*   Updated: 2024/11/18 16:34:31 by jegerman         ###   ########.fr       */
+/*   Updated: 2024/11/22 19:00:35 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,11 @@ static void	hdn_test_strmapi(char const *s, char (*f)(unsigned int, char),
 	char	*ret;
 
 	ret = ft_strmapi(s, f);
-	printf("ft_strmapi(\"%s\", %p) -> \"%s\"\n", s, f, ret);
+	// printf("ft_strmapi(\"%s\", %p) -> \"%s\"\n", s, f, ret);
 	if (ret == NULL)
 		assert(ret == expc);
 	else
 		assert(ft_memcmp(ret, expc, ft_strlen(expc) + 1) == 0);
-	printf("[OK]\n");
 	free(ret);
 }
 
@@ -44,4 +43,5 @@ int	main(void)
 	hdn_test_strmapi("", hdn_capitalize_even_characters, "");
 	hdn_test_strmapi("salut", hdn_capitalize_even_characters, "SaLuT");
 	hdn_test_strmapi("sa\x01\000lut", hdn_capitalize_even_characters, "Sa\x01");
+	printf("[OK] strmapi\n");
 }

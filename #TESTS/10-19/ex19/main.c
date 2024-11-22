@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 17:16:08 by jegerman          #+#    #+#             */
-/*   Updated: 2024/11/13 15:40:22 by jegerman         ###   ########.fr       */
+/*   Updated: 2024/11/22 18:42:14 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,15 +32,14 @@ static void	hdn_test_strnstr(const char *big, const void *little, size_t len)
 
 	ret[0] = strnstr(big, little, len);
 	ret[1] = ft_strnstr(big, little, len);
-	printf("[0] strnstr(\"%s\", \"%s\", %lu) -> \"%s\"\n",
-		(char *)big, (char *)little, len, ret[0]);
-	printf("[0] ft_strnstr(\"%s\", \"%s\", %lu) -> \"%s\"\n",
-		(char *)big, (char *)little, len, ret[1]);
+	// printf("[0] strnstr(\"%s\", \"%s\", %lu) -> \"%s\"\n",
+	// 	(char *)big, (char *)little, len, ret[0]);
+	// printf("[0] ft_strnstr(\"%s\", \"%s\", %lu) -> \"%s\"\n",
+	// 	(char *)big, (char *)little, len, ret[1]);
 	if (ret[0] == NULL)
 		assert(ret[0] == ret[1]);
 	else
 		assert(ft_strcmp(ret[0], ret[1]) == 0);
-	printf("[OK]\n");
 }
 
 int	main(void)
@@ -67,4 +66,5 @@ int	main(void)
 	hdn_test_strnstr("012", "123456", 6);
 	hdn_test_strnstr("123456", "123456", 6);
 	hdn_test_strnstr("123456", "123456", 10);
+	printf("[OK] strnstr\n");
 }

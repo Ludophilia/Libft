@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 17:16:08 by jegerman          #+#    #+#             */
-/*   Updated: 2024/11/14 16:02:05 by jegerman         ###   ########.fr       */
+/*   Updated: 2024/11/22 18:47:02 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ static void	hdn_test_strdup(const char *str)
 	size = ft_strlen(str);
 	ret[0] = strdup(str);
 	ret[1] = ft_strdup(str);
-	printf("strdup(\"%s\") -> \"%s\"\n", str, ret[0]);
-	printf("ft_strdup(\"%s\") -> \"%s\"\n", str, ret[1]);
+	// printf("strdup(\"%s\") -> \"%s\"\n", str, ret[0]);
+	// printf("ft_strdup(\"%s\") -> \"%s\"\n", str, ret[1]);
 	if (ret[0] == NULL)
 		assert(ret[0] == ret[1]);
 	else
@@ -32,7 +32,6 @@ static void	hdn_test_strdup(const char *str)
 			&& ft_memcmp(ret[1], str, size + 1) == 0);
 	free(ret[0]);
 	free(ret[1]);
-	printf("[OK]\n");
 }
 
 int	main(void)
@@ -41,4 +40,5 @@ int	main(void)
 	hdn_test_strdup("\x01\x02\x03");
 	hdn_test_strdup("hello\0 (again)");
 	hdn_test_strdup("hello (again)");
+	printf("[OK] strdup\n");
 }

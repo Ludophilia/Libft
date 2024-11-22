@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 17:16:08 by jegerman          #+#    #+#             */
-/*   Updated: 2024/11/12 13:55:41 by jegerman         ###   ########.fr       */
+/*   Updated: 2024/11/22 18:05:00 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,18 +50,17 @@ static void	hdn_test_strlcat(char *dest_init, char *src, size_t size,
 	hdn_init_dests(dest_init, dest0, dest1);
 	srclen = ft_strlen(src);
 	destlen = ft_strlen(dest_init);
-	printf("[0] dest0 -> '%s'; dest1 -> '%s'; src -> '%s'; size -> %lu\n",
-		dest0, dest1, src, size);
+	// printf("[0] dest0 -> '%s'; dest1 -> '%s'; src -> '%s'; size -> %lu\n",
+		// dest0, dest1, src, size);
 	ret[0] = strlcat(dest0, src, size);
 	ret[1] = ft_strlcat(dest1, src, size);
-	printf("[1] ret[0] -> %lu; ret[1] -> %lu\n", ret[0], ret[1]);
+	// printf("[1] ret[0] -> %lu; ret[1] -> %lu\n", ret[0], ret[1]);
 	if (size <= destlen)
 		assert(ret[0] == size + srclen && ret[1] == size + srclen);
 	else
 		assert(ret[0] == srclen + destlen && ret[1] == srclen + destlen);
-	printf("[1] dest0 -> '%s'; dest1 -> '%s'\n", dest0, dest1);
+	// printf("[1] dest0 -> '%s'; dest1 -> '%s'\n", dest0, dest1);
 	assert(ft_strcmp(dest0, expect) == 0 && ft_strcmp(dest1, expect) == 0);
-	printf("[OK]\n");
 }
 
 int	main(void)
@@ -76,4 +75,5 @@ int	main(void)
 	hdn_test_strlcat("01", "23", 4, "012");
 	hdn_test_strlcat("01", "23", 5, "0123");
 	hdn_test_strlcat("01234", "56789", 10, "012345678");
+	printf("[OK] strlcat\n");
 }

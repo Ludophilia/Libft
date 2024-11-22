@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 17:16:08 by jegerman          #+#    #+#             */
-/*   Updated: 2024/11/13 16:37:57 by jegerman         ###   ########.fr       */
+/*   Updated: 2024/11/22 18:44:25 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,9 @@ static void	hdn_test_atoi(const char *nptr)
 
 	ret[0] = atoi(nptr);
 	ret[1] = ft_atoi(nptr);
-	printf("[0] atoi(\"%s\") -> %i\n", nptr, ret[0]);
-	printf("[0] ft_atoi(\"%s\") -> %i\n", nptr, ret[1]);
+	// printf("[0] atoi(\"%s\") -> %i\n", nptr, ret[0]);
+	// printf("[0] ft_atoi(\"%s\") -> %i\n", nptr, ret[1]);
 	assert(ret[0] == ret[1]);
-	printf("[OK]\n");
 }
 
 int	main(void)
@@ -54,4 +53,5 @@ int	main(void)
 	hdn_test_atoi("\r\r\r128e128");
 	hdn_test_atoi("-2147483648lll++-5ddj");
 	hdn_test_atoi("2147483647k011");
+	printf("[OK] atoi\n");
 }

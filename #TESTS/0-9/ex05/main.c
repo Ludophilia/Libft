@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 17:16:08 by jegerman          #+#    #+#             */
-/*   Updated: 2024/11/07 12:30:48 by jegerman         ###   ########.fr       */
+/*   Updated: 2024/11/22 17:46:09 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ static void	hdn_test_and_cmp(char *str)
 
 	ret[0] = strlen(str);
 	ret[1] = ft_strlen(str);
-	printf("strlen('%s') -> %lu\n", str, ret[0]);
-	printf("ft_strlen('%s') -> %lu\n", str, ret[1]);
+	// printf("strlen('%s') -> %lu\n", str, ret[0]);
+	// printf("ft_strlen('%s') -> %lu\n", str, ret[1]);
 	assert(ret[0] == ret[1]);
 }
 
@@ -36,4 +36,5 @@ int	main(void)
 	i = -1;
 	while (strs[++i])
 		hdn_test_and_cmp(strs[i]);
+	printf("[OK] strlen\n");
 }

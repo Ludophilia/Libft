@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 17:16:08 by jegerman          #+#    #+#             */
-/*   Updated: 2024/11/13 11:47:01 by jegerman         ###   ########.fr       */
+/*   Updated: 2024/11/22 18:15:57 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,9 @@ static void	hdn_test_memchr(const void *s, int c, size_t n)
 
 	ret[0] = memchr(s, c, n);
 	ret[1] = ft_memchr(s, c, n);
-	printf("[1] memchr('%s', '%c', %lu) -> %p\n", (char *)s, c, n, ret[0]);
-	printf("[1] ft_memchr('%s', '%c', %lu) -> %p\n", (char *)s, c, n, ret[1]);
+	// printf("[1] memchr('%s', '%c', %lu) -> %p\n", (char *)s, c, n, ret[0]);
+	// printf("[1] ft_memchr('%s', '%c', %lu) -> %p\n", (char *)s, c, n, ret[1]);
 	assert(ret[0] == ret[1]);
-	printf("[OK]\n");
 }
 
 int	main(void)
@@ -39,4 +38,5 @@ int	main(void)
 	hdn_test_memchr("0123456789", '1', 2);
 	hdn_test_memchr("0123456789", '2', 11);
 	hdn_test_memchr("0123456222", '2', 11);
+	printf("[OK] memchr\n");
 }

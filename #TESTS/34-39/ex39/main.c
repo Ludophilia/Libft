@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 17:16:08 by jegerman          #+#    #+#             */
-/*   Updated: 2024/11/20 14:34:28 by jegerman         ###   ########.fr       */
+/*   Updated: 2024/11/22 19:19:34 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	hdn_init_node(int nb, t_list **node_a)
 		assert(content != NULL);
 		*node_a = ft_lstnew(content);
 		assert(*node_a != NULL);
-		printf("[0] (*node_a)->content -> %i\n", *(int *)(*node_a)->content);
+		// printf("[0] (*node_a)->content -> %i\n", *(int *)(*node_a)->content);
 	}
 }
 
@@ -54,15 +54,15 @@ static void	hdn_test_regular_lstdelone(int nb)
 
 	hdn_init_node(nb, &node_a);
 	ft_lstdelone(NULL, hdn_del_content);
-	printf("[0] ft_lstdelone(%p)\n", NULL);
-	printf("[1] node_a->content -> %i\n", *(int *)node_a->content);
+	// printf("[0] ft_lstdelone(%p)\n", NULL);
+	// printf("[1] node_a->content -> %i\n", *(int *)node_a->content);
 	assert(node_a->next == NULL && *(int *)node_a->content == nb);
-	printf("[1] ft_lstdelone(%p)\n", node_a);
+	// printf("[1] ft_lstdelone(%p)\n", node_a);
 	ft_lstdelone(node_a, hdn_del_content);
-	printf("[OK]\n");
 }
 
 int	main(void)
 {
 	hdn_test_regular_lstdelone(420);
+	printf("[OK] lstdelone\n");
 }
