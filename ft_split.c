@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 18:30:31 by jegerman          #+#    #+#             */
-/*   Updated: 2024/11/19 14:52:39 by jegerman         ###   ########.fr       */
+/*   Updated: 2024/11/22 16:37:25 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,12 @@ static char	*hdn_create_word(const char *s, char c, int *i, char **strs)
 	return (word);
 }
 
-static void	hdn_free_strs(char **strs, int j)
+static int	hdn_free_strs(char **strs, int j)
 {
 	while (--j >= 0)
 		free(strs[j]);
 	free(strs);
+	return (1);
 }
 
 char	**ft_split(char const *s, char c)
@@ -78,8 +79,9 @@ char	**ft_split(char const *s, char c)
 		while (s[i] && s[i] == c)
 			++i;
 		if (s[i] && s[i] != c
-			&& hdn_create_word(s + i, c, &i, strs + j++) == NULL)
-			hdn_free_strs(strs, j - 1);
+			&& hdn_create_word(s + i, c, &i, strs + j++) == NULL
+			&& hdn_free_strs(strs, j - 1))
+			return (NULL);
 	}
 	return (strs);
 }
