@@ -6,86 +6,95 @@
 #    By: jegerman <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/06 12:44:08 by jegerman          #+#    #+#              #
-#    Updated: 2024/11/20 16:27:07 by jegerman         ###   ########.fr        #
+#    Updated: 2025/02/11 16:07:02 by jegerman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME := libft.a
 
 CC := cc
-CFLAGS := -Wall -Wextra -Werror
-
 AR := ar
+CFLAGS := -Wall -Wextra -Werror
 ARFLAGS := rcs
 
-SRCS := ft_isalpha.c
-SRCS += ft_isdigit.c
-SRCS += ft_isalnum.c
-SRCS += ft_isascii.c
-SRCS += ft_isprint.c
+SRCS_LFTD := srcs/libft
+SRCS_PFDB := srcs/ft_printf
 
-SRCS += ft_strlen.c
-SRCS += ft_memset.c
-SRCS += ft_bzero.c
-SRCS += ft_memcpy.c
-SRCS += ft_memmove.c
+INCL_LFT := includes/libft
+INCL_PFB := includes/ft_printf
 
-SRCS += ft_strlcpy.c
-SRCS += ft_strlcat.c
+SRCS_LFT := $(SRCS_LFTD)/ft_isalpha.c
+SRCS_LFT += $(SRCS_LFTD)/ft_isdigit.c
+SRCS_LFT += $(SRCS_LFTD)/ft_isalnum.c
+SRCS_LFT += $(SRCS_LFTD)/ft_isascii.c
+SRCS_LFT += $(SRCS_LFTD)/ft_isprint.c
+SRCS_LFT += $(SRCS_LFTD)/ft_strlen.c
+SRCS_LFT += $(SRCS_LFTD)/ft_memset.c
+SRCS_LFT += $(SRCS_LFTD)/ft_bzero.c
+SRCS_LFT += $(SRCS_LFTD)/ft_memcpy.c
+SRCS_LFT += $(SRCS_LFTD)/ft_memmove.c
+SRCS_LFT += $(SRCS_LFTD)/ft_strlcpy.c
+SRCS_LFT += $(SRCS_LFTD)/ft_strlcat.c
+SRCS_LFT += $(SRCS_LFTD)/ft_toupper.c
+SRCS_LFT += $(SRCS_LFTD)/ft_tolower.c
+SRCS_LFT += $(SRCS_LFTD)/ft_strchr.c
+SRCS_LFT += $(SRCS_LFTD)/ft_strrchr.c
+SRCS_LFT += $(SRCS_LFTD)/ft_strncmp.c
+SRCS_LFT += $(SRCS_LFTD)/ft_memchr.c
+SRCS_LFT += $(SRCS_LFTD)/ft_memcmp.c
+SRCS_LFT += $(SRCS_LFTD)/ft_strnstr.c
+SRCS_LFT += $(SRCS_LFTD)/ft_atoi.c
+SRCS_LFT += $(SRCS_LFTD)/ft_calloc.c
+SRCS_LFT += $(SRCS_LFTD)/ft_strdup.c
+SRCS_LFT += $(SRCS_LFTD)/ft_substr.c
+SRCS_LFT += $(SRCS_LFTD)/ft_strjoin.c
+SRCS_LFT += $(SRCS_LFTD)/ft_strtrim.c
+SRCS_LFT += $(SRCS_LFTD)/ft_split.c
+SRCS_LFT += $(SRCS_LFTD)/ft_itoa.c
+SRCS_LFT += $(SRCS_LFTD)/ft_strmapi.c
+SRCS_LFT += $(SRCS_LFTD)/ft_striteri.c
+SRCS_LFT += $(SRCS_LFTD)/ft_putchar_fd.c
+SRCS_LFT += $(SRCS_LFTD)/ft_putstr_fd.c
+SRCS_LFT += $(SRCS_LFTD)/ft_putendl_fd.c
+SRCS_LFT += $(SRCS_LFTD)/ft_putnbr_fd.c
+SRCS_LFT += $(SRCS_LFTD)/ft_lstnew_bonus.c
+SRCS_LFT += $(SRCS_LFTD)/ft_lstadd_front_bonus.c
+SRCS_LFT += $(SRCS_LFTD)/ft_lstsize_bonus.c
+SRCS_LFT += $(SRCS_LFTD)/ft_lstlast_bonus.c
+SRCS_LFT += $(SRCS_LFTD)/ft_lstadd_back_bonus.c
+SRCS_LFT += $(SRCS_LFTD)/ft_lstdelone_bonus.c
+SRCS_LFT += $(SRCS_LFTD)/ft_lstclear_bonus.c
+SRCS_LFT += $(SRCS_LFTD)/ft_lstiter_bonus.c
+SRCS_LFT += $(SRCS_LFTD)/ft_lstmap_bonus.c
 
-SRCS += ft_toupper.c
-SRCS += ft_tolower.c
-SRCS += ft_strchr.c
-SRCS += ft_strrchr.c
-SRCS += ft_strncmp.c
+SRCS_PFB := $(SRCS_PFDB)/ft_printf_bonus.c
+SRCS_PFB += $(SRCS_PFDB)/printer_bonus.c
+SRCS_PFB += $(SRCS_PFDB)/processor_bonus.c
+SRCS_PFB += $(SRCS_PFDB)/parser_bonus.c
+SRCS_PFB += $(SRCS_PFDB)/parser_helpers_bonus.c
+SRCS_PFB += $(SRCS_PFDB)/processor_helpers_bonus.c
+SRCS_PFB += $(SRCS_PFDB)/flag_helpers_bonus.c
+SRCS_PFB += $(SRCS_PFDB)/bufferer_bonus.c
+SRCS_PFB += $(SRCS_PFDB)/bufferer_helpers_bonus.c
 
-SRCS += ft_memchr.c
-SRCS += ft_memcmp.c
-SRCS += ft_strnstr.c
+OBJ_LFT := $(SRCS_LFT:.c=.o)
+OBJ_PFB := $(SRCS_PFB:.c=.o)
 
-SRCS += ft_atoi.c
-SRCS += ft_calloc.c
-SRCS += ft_strdup.c
-
-SRCS += ft_substr.c
-SRCS += ft_strjoin.c
-SRCS += ft_strtrim.c
-SRCS += ft_split.c
-
-SRCS += ft_itoa.c
-
-SRCS += ft_strmapi.c
-SRCS += ft_striteri.c
-
-SRCS += ft_putchar_fd.c
-SRCS += ft_putstr_fd.c
-SRCS += ft_putendl_fd.c
-SRCS += ft_putnbr_fd.c
-
-OBJS := $(SRCS:.c=.o)
-
-SRCS_B := ft_lstnew_bonus.c
-SRCS_B += ft_lstadd_front_bonus.c
-SRCS_B += ft_lstsize_bonus.c
-SRCS_B += ft_lstlast_bonus.c
-SRCS_B += ft_lstadd_back_bonus.c
-SRCS_B += ft_lstdelone_bonus.c
-SRCS_B += ft_lstclear_bonus.c
-SRCS_B += ft_lstiter_bonus.c
-SRCS_B += ft_lstmap_bonus.c
-
-OBJS_B := $(SRCS_B:.c=.o)
+OBJS := $(OBJ_LFT) $(OBJ_PFB)
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
 	$(AR) $(ARFLAGS) $@ $^
 
-bonus: $(OBJS_B)
-	$(AR) $(ARFLAGS) $(NAME) $^
+$(SRCS_LFTD)/%.o: $(SRCS_LFTD)/%.c
+	$(CC) $(CFLAGS) -o $@ -c $< -I$(INCL_LFT)
+
+$(SRCS_PFDB)/%.o: $(SRCS_PFDB)/%.c
+	$(CC) $(CFLAGS) -o $@ -c $< -I$(INCL_PFB) -I$(INCL_LFT)
 
 clean:
-	rm -f $(OBJS) $(OBJS_B)
+	rm -f $(OBJS) $(OBJSB)
 
 fclean: clean
 	rm -f $(NAME)
