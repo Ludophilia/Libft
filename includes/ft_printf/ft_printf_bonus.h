@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 15:58:50 by jegerman          #+#    #+#             */
-/*   Updated: 2025/02/11 16:02:33 by jegerman         ###   ########.fr       */
+/*   Updated: 2025/02/11 17:09:16 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ typedef union u_usl
 typedef struct s_meta
 {
 	unsigned int	flags;
+	int				fd;
 	int				field_v;
 	int				prec_v;
 	va_list			args;
@@ -102,5 +103,6 @@ bool	is_valid_conv(char c);
 int		is_valid_specif(const char *spec, t_meta *m);
 
 int		ft_printf(const char *format, ...);
+int		ft_dprintf(int fd, const char *format, ...);
 
 #endif

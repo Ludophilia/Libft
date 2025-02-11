@@ -6,7 +6,7 @@
 /*   By: jegerman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 14:11:12 by jegerman          #+#    #+#             */
-/*   Updated: 2024/12/21 16:10:15 by jegerman         ###   ########.fr       */
+/*   Updated: 2025/02/11 17:09:58 by jegerman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_putchar_cc(const char c, t_meta *m)
 {
-	write(1, &c, 1);
+	write(m->fd, &c, 1);
 	m->count++;
 	return (1);
 }
@@ -26,7 +26,7 @@ int	ft_putstr_cc(const char *str, t_meta *m)
 	len = ft_strlen(str);
 	if (len == 0)
 		return (1);
-	write(1, str, len);
+	write(m->fd, str, len);
 	m->count += len;
 	return (1);
 }
